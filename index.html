@@ -1,1 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An Introduction to Quantum Psychology | Official Digital Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100;400;700&family=Inter:wght@300;400;700;900&display=swap');
+        
+        body {
+            font-family: 'Inter', 'Vazirmatn', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        
+        .rtl { direction: rtl; font-family: 'Vazirmatn', sans-serif; }
+        .ltr { direction: ltr; font-family: 'Inter', sans-serif; }
 
+        .quantum-bg {
+            background: radial-gradient(circle at top right, #1e1b4b 0%, #020617 100%);
+            background-attachment: fixed;
+        }
+
+        .sidebar-active {
+            border-right: 4px solid #818cf8;
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+        }
+        
+        .rtl .sidebar-active { border-right: none; border-left: 4px solid #818cf8; }
+
+        .content-section { display: none; animation: fadeIn 0.8s ease-out forwards; }
+        .content-section.active { display: block; }
+
+        .author-name {
+            background: linear-gradient(to right, #818cf8, #c084fc, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* Content Blocks */
+        .block-theory { border-left: 5px solid #6366f1; background: rgba(99, 102, 241, 0.08); padding: 1.5rem; border-radius: 1rem; margin-bottom: 2rem; }
+        .block-life { border-left: 5px solid #fbbf24; background: rgba(251, 191, 36, 0.08); padding: 1.5rem; border-radius: 1rem; margin-bottom: 2rem; }
+        .block-cases { border-left: 5px solid #10b981; background: rgba(16, 185, 129, 0.08); padding: 1.5rem; border-radius: 1rem; }
+
+        .rtl .block-theory, .rtl .block-life, .rtl .block-cases { border-left: none; }
+        .rtl .block-theory { border-right: 5px solid #6366f1; }
+        .rtl .block-life { border-right: 5px solid #fbbf24; }
+        .rtl .block-cases { border-right: 5px solid #10b981; }
+
+        .mini-player-container {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+
+        .mini-player-controls {
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            display: none;
+            width: 240px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .player-toggle-btn {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: #4f46e5;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cover-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 3rem;
+            padding: 3rem 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lang-dropdown { position: relative; width: 100%; margin-bottom: 1.5rem; }
+        .lang-dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            margin-top: 0.5rem;
+            z-index: 50;
+            overflow: hidden;
+        }
+        .lang-dropdown.open .lang-dropdown-content { display: block; }
+
+        @keyframes slideIn { from { opacity: 0; transform: translateY(10px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        .case-item { background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 0.75rem; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; margin-bottom: 0.75rem; }
+        .case-item:hover { border-color: rgba(16, 185, 129, 0.5); background: rgba(16, 185, 129, 0.05); }
+
+        .contact-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            color: #f1f5f9;
+            transition: 0.3s;
+        }
+        .contact-btn:hover { background: #4f46e5; color: white; transform: translateY(-3px); }
+    </style>
+</head>
+<body class="flex flex-col md:flex-row min-h-screen quantum-bg ltr">
+
+    <!-- Mobile Navigation -->
+    <div class="md:hidden p-4 bg-slate-950/90 backdrop-blur flex justify-between items-center border-b border-slate-800 sticky top-0 z-50">
+        <h1 class="font-bold text-indigo-400">Quantum Psychology</h1>
+        <button onclick="toggleSidebar()" class="text-white p-2"><i class="fas fa-bars text-2xl"></i></button>
+    </div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="hidden md:flex flex-col w-full md:w-64 bg-slate-950/98 border-r border-slate-800 p-6 sticky top-0 h-screen overflow-y-auto z-40 shadow-2xl">
+        <div class="mb-10">
+            <h1 id="side-title" class="text-lg font-black text-white leading-tight tracking-tighter uppercase italic text-center md:text-left">Quantum<br><span class="text-indigo-400 not-italic">Psychology</span></h1>
+        </div>
+
+        <!-- Language Dropdown -->
+        <div class="lang-dropdown" id="langDropdown">
+            <button onclick="toggleLangDropdown()" class="w-full py-2.5 px-3 bg-indigo-900/30 border border-indigo-500/30 rounded-xl flex items-center justify-between text-xs font-bold">
+                <span id="activeLangLabel">Lang: English</span>
+                <i class="fas fa-chevron-down text-indigo-400 text-[10px] transition-transform duration-300" id="langChevron"></i>
+            </button>
+            <div class="lang-dropdown-content shadow-2xl">
+                <button onclick="setLang('en')" class="w-full p-3 text-left hover:bg-white/5 transition flex items-center justify-between text-[10px] border-b border-white/5">English <span>EN</span></button>
+                <button onclick="setLang('tr')" class="w-full p-3 text-left hover:bg-white/5 transition flex items-center justify-between text-[10px] border-b border-white/5">Türkçe <span>TR</span></button>
+                <button onclick="setLang('fa')" class="w-full p-3 text-right hover:bg-white/5 transition flex flex-row-reverse items-center justify-between text-[10px]">فارسی <span>FA</span></button>
+            </div>
+        </div>
+
+        <nav class="flex-grow space-y-1.5">
+            <button onclick="nav('intro')" class="nav-item w-full text-left p-3 rounded-xl hover:bg-slate-800 transition sidebar-active text-[11px] font-semibold">Cover & Introduction</button>
+            <button onclick="nav('ch1')" class="nav-item w-full text-left p-3 rounded-xl hover:bg-slate-800 transition text-[11px]">1. The Observer Effect</button>
+            <button onclick="nav('ch2')" class="nav-item w-full text-left p-3 rounded-xl hover:bg-slate-800 transition text-[11px]">2. Superposition</button>
+            <button onclick="nav('ch3')" class="nav-item w-full text-left p-3 rounded-xl hover:bg-slate-800 transition text-[11px]">3. Entanglement</button>
+            <button onclick="nav('ch4')" class="nav-item w-full text-left p-3 rounded-xl hover:bg-slate-800 transition text-[11px]">4. Tunneling</button>
+        </nav>
+
+        <!-- Sidebar Barcode using img05.png -->
+        <div class="mt-8 pt-6 border-t border-white/5 flex flex-col items-center">
+            <div class="bg-white p-2 rounded-xl shadow-lg hover:scale-105 transition overflow-hidden">
+                <img src="./images/img05.png" alt="ISBN Barcode" class="h-16 w-auto object-contain" onerror="this.src='https://via.placeholder.com/150x60?text=ISBN+978-600-94-1047-7'">
+            </div>
+            <p class="text-[7px] text-slate-500 font-bold uppercase mt-3 tracking-widest text-center">Global Ed. 2014</p>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow p-4 md:p-16 overflow-y-auto">
+        <div id="book-container" class="max-w-4xl mx-auto">
+            
+            <!-- SECTION: INTRO -->
+            <section id="intro" class="content-section active space-y-12 text-center md:text-left">
+                <div class="cover-card shadow-[0_0_80px_rgba(79,70,229,0.15)]">
+                    <div class="relative z-10 flex flex-col items-center text-center">
+                        <h4 class="text-indigo-400 font-bold tracking-[0.5em] uppercase text-[8px] md:text-[10px] mb-4">Mastering the Quantum Mind</h4>
+                        
+                        <div class="w-full max-w-full overflow-hidden px-2">
+                            <h2 class="text-3xl sm:text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-none mb-2">QUANTUM</h2>
+                            <h2 class="text-2xl sm:text-4xl md:text-7xl font-black text-white/80 uppercase tracking-tighter leading-none mb-10">PSYCHOLOGY</h2>
+                        </div>
+                        
+                        <div class="h-px w-20 md:w-32 bg-indigo-500 mb-10"></div>
+
+                        <!-- Authors: Equal Font Sizes for Name and Surname, First above Last -->
+                        <div class="flex flex-row items-center justify-center gap-4 md:gap-12 mb-10 py-6 px-6 border-y border-white/5 w-full max-w-full">
+                            <div class="flex flex-col items-center">
+                                <span class="text-lg md:text-2xl author-name italic whitespace-nowrap leading-none mb-1">Faramarz</span>
+                                <span class="text-lg md:text-2xl author-name italic whitespace-nowrap leading-none">Kowsari</span>
+                            </div>
+                            <span class="hidden md:block text-slate-700 text-3xl opacity-50">•</span>
+                            <div class="flex flex-col items-center">
+                                <span class="text-lg md:text-2xl author-name italic whitespace-nowrap leading-none mb-1">Hamid</span>
+                                <span class="text-lg md:text-2xl author-name italic whitespace-nowrap leading-none">Kowsari</span>
+                            </div>
+                            <span class="hidden md:block text-slate-700 text-3xl opacity-50">•</span>
+                            <div class="flex flex-col items-center">
+                                <span class="text-lg md:text-2xl author-name italic whitespace-nowrap leading-none mb-1">Ahmad</span>
+                                <span class="text-lg md:text-2xl author-name italic whitespace-nowrap leading-none">Hellat</span>
+                            </div>
+                        </div>
+
+                        <!-- Cover Barcode using img05.png -->
+                        <div class="bg-white p-3 rounded-[1.5rem] border border-white/10 flex flex-col items-center shadow-2xl overflow-hidden scale-110">
+                            <img src="./images/img05.png" alt="Book ISBN Barcode" class="h-20 w-auto object-contain" onerror="this.src='https://via.placeholder.com/200x80?text=9786009410477'">
+                        </div>
+                        <p class="text-slate-400 font-black tracking-widest text-[8px] uppercase mt-6">Edition 1.0 • Global Release 2014</p>
+                    </div>
+                </div>
+
+                <div class="prose prose-invert max-w-none text-lg space-y-12">
+                    <div class="lang-en space-y-8 text-justify">
+                        <h3 class="text-3xl font-bold text-indigo-300">About the Publication</h3>
+                        <p>This book represents a groundbreaking synergy between theoretical physics and clinical psychology. Published in 2014, it proposes that the human psyche is not a deterministic machine, but a dynamic quantum field of probabilities.</p>
+                        <p class="text-sm font-bold text-indigo-200">ISBN: 978-600-94-1047-7</p>
+                        <div class="pt-8 border-t border-white/5 flex flex-wrap gap-4 justify-center md:justify-start">
+                            <a href="mailto:info@faramarzkowsari.com" class="contact-btn"><i class="fas fa-envelope"></i> Email</a>
+                            <a href="https://linkedin.com/in/faramarzkowsari" target="_blank" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                            <a href="https://play.google.com/store/search?q=Faramarz_Kowsari&c=books" target="_blank" class="contact-btn"><i class="fab fa-google-play"></i> Books</a>
+                        </div>
+                    </div>
+
+                    <div class="lang-fa hidden space-y-8 rtl text-justify">
+                        <h3 class="text-3xl font-bold text-indigo-300 text-right">درباره این اثر</h3>
+                        <p>کتاب <strong>«پیش‌درآمدی بر روانشناسی کوانتومی»</strong> که در سال <strong>۲۰۱۴</strong> میلادی منتشر شد، نمایانگر تلاشی نوآورانه برای پیوند میان دنیای فیزیک نظری و روان‌شناسی بالینی است.</p>
+                        <p>این کتاب با عبور از برچسب‌های صلب تشخیصی، چارچوبی را معرفی می‌کند که در آن رنج به عنوان یک تابع موج فروپاشیده دیده می‌شود که می‌تواند به حالت پتانسیل و شفا بازگردد.</p>
+                        <p class="text-sm font-bold text-indigo-200 text-right">شابک (ISBN): ۹۷۸-۶۰۰-۹۴-۱۰۴۷-۷</p>
+                        <div class="pt-8 border-t border-white/5 flex flex-wrap gap-4 ltr justify-center md:justify-start">
+                            <a href="mailto:info@faramarzkowsari.com" class="contact-btn"><i class="fas fa-envelope"></i> Email</a>
+                            <a href="https://linkedin.com/in/faramarzkowsari" target="_blank" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                            <a href="https://play.google.com/store/search?q=Faramarz_Kowsari&c=books" target="_blank" class="contact-btn"><i class="fab fa-google-play"></i> Books</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHAPTER 1: THE OBSERVER EFFECT -->
+            <section id="ch1" class="content-section space-y-12">
+                <header class="border-b border-indigo-500/30 pb-8 text-right md:text-left">
+                    <h2 class="text-4xl md:text-6xl font-black text-white lang-en uppercase">The Observer Effect</h2>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white lang-fa hidden rtl text-right">۱. اثر ناظر کوانتومی</h2>
+                </header>
+                <img src="./images/img01.png" class="w-full h-80 object-cover rounded-[2.5rem] shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1509248961158-e54f6934749c?auto=format&fit=crop&q=80&w=1200'">
+                
+                <div class="space-y-8">
+                    <div class="block-theory">
+                        <h4 class="text-indigo-400 font-bold mb-4 text-2xl ltr">1. Theory & Metaphor</h4>
+                        <p class="lang-en text-justify">The observer creates the particle by looking. Metaphor: Your attention is a spotlight in a dark room. Whatever you focus on becomes your experienced reality.</p>
+                        <p class="lang-fa hidden rtl text-justify text-right">ناظر با نگاه کردن، ذره را خلق می‌کند. استعاره: توجه شما مانند نورافکنی در یک اتاق تاریک است. به هر چه بتابد، همان واقعیت شما می‌شود.</p>
+                    </div>
+                    <div class="block-cases">
+                        <h4 class="text-emerald-400 font-bold mb-6 text-2xl ltr">7 Unique Case Studies</h4>
+                        <div class="grid gap-4 lang-en">
+                            <div class="case-item"><strong>1. Debt Visualization:</strong> CEO stopped observing "loss" and focused on "capital flux."</div>
+                            <div class="case-item"><strong>2. Judgment Shift:</strong> Shy person realized their own gaze created the judgment of others.</div>
+                            <div class="case-item"><strong>3. Chronic Pain:</strong> Patient dissolved pain by observing the "void" surrounding the ache.</div>
+                            <div class="case-item"><strong>4. Memory Shift:</strong> Veteran observing trauma as light particles instead of fixed history.</div>
+                            <div class="case-item"><strong>5. OCD Relief:</strong> Seeing urges as neutral neural clouds that don't need rain.</div>
+                            <div class="case-item"><strong>6. Turbulence Peace:</strong> Traveler observing plane movement as quantum vibration.</div>
+                            <div class="case-item"><strong>7. Blank Page:</strong> Writer observing the field of words rather than the lack of them.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CH2: SUPERPOSITION -->
+            <section id="ch2" class="content-section space-y-12">
+                <header class="border-b border-indigo-500/30 pb-8 text-right md:text-left">
+                    <h2 class="text-4xl md:text-6xl font-black text-white lang-en uppercase">Superposition</h2>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white lang-fa hidden rtl text-right">۲. برهم‌نهی روان</h2>
+                </header>
+                <img src="./images/img02.png" class="w-full h-80 object-cover rounded-[2.5rem] shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=1200'">
+                <div class="block-theory">
+                    <p class="lang-en text-justify">The psyche can exist in multiple contradictory states simultaneously. Binary logic is the soul's prison.</p>
+                </div>
+                <div class="block-cases">
+                    <div class="grid gap-4 lang-en">
+                        <div class="case-item"><strong>1. Bereaved Peace:</strong> Holding both grief and gratitude simultaneously.</div>
+                        <div class="case-item"><strong>2. Dual Career:</strong> Being an engineer and artist in a unified field.</div>
+                        <div class="case-item"><strong>3. Choice Dissolution:</strong> Living both outcomes in visualization to clear stasis.</div>
+                        <div class="case-item"><strong>4. Brave Fear:</strong> Accepting fear as a valid part of the brave self.</div>
+                        <div class="case-item"><strong>5. Exhausted Love:</strong> Parent loving the child while hating the fatigue.</div>
+                        <div class="case-item"><strong>6. Moral Duality:</strong> Holding justice and mercy to achieve forgiveness.</div>
+                        <div class="case-item"><strong>7. Identity Shift:</strong> Seeing oneself as "healing" while still "ill."</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CH3: ENTANGLEMENT -->
+            <section id="ch3" class="content-section space-y-12">
+                <header class="border-b border-indigo-500/30 pb-8 text-right md:text-left">
+                    <h2 class="text-4xl md:text-6xl font-black text-white lang-en uppercase">Entanglement</h2>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white lang-fa hidden rtl text-right">۳. درهم‌تنیدگی متقابل</h2>
+                </header>
+                <img src="./images/img03.png" class="w-full h-80 object-cover rounded-[2.5rem] shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1531315630201-bb15abeb1653?auto=format&fit=crop&q=80&w=1200'">
+                <div class="block-cases">
+                    <div class="grid gap-4 lang-en">
+                        <div class="case-item"><strong>1. Distance Calm:</strong> Mother's peace affecting child abroad.</div>
+                        <div class="case-item"><strong>2. Body Mirror:</strong> Therapist feeling client's ache in silence.</div>
+                        <div class="case-item"><strong>3. Group Shift:</strong> One breakthrough syncing the room.</div>
+                        <div class="case-item"><strong>4. Marital Sync:</strong> Internal shift changing partner automatically.</div>
+                        <div class="case-item"><strong>5. Field Leadership:</strong> Manager's calm stabilizing office chaos.</div>
+                        <div class="case-item"><strong>6. Ancestral:</strong> Healing self resolving lineage trauma.</div>
+                        <div class="case-item"><strong>7. Timing:</strong> Vital news exactly when letting go.</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CH4: TUNNELING -->
+            <section id="ch4" class="content-section space-y-12">
+                <header class="border-b border-indigo-500/30 pb-8 text-right md:text-left">
+                    <h2 class="text-4xl md:text-6xl font-black text-white lang-en uppercase">Tunneling</h2>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white lang-fa hidden rtl text-right text-right">۴. تونل‌زنی ذهنی</h2>
+                </header>
+                <img src="./images/img04.png" class="w-full h-80 object-cover rounded-[2.5rem] shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=1200'">
+                <div class="block-cases">
+                    <div class="grid gap-4 lang-en">
+                        <div class="case-item"><strong>1. Phobia Leap:</strong> Decades of fear vanishing in one jump.</div>
+                        <div class="case-item"><strong>2. Identity:</strong> Sudden shift from "addict" to "free."</div>
+                        <div class="case-item"><strong>3. Insight:</strong> Resentment wall turning into light.</div>
+                        <div class="case-item"><strong>4. Creative:</strong> 5-year block solved in one night.</div>
+                        <div class="case-item"><strong>5. Financial:</strong> Skipping poverty logic to prosperity.</div>
+                        <div class="case-item"><strong>6. Stage:</strong> Shy person tunneling into public mastery.</div>
+                        <div class="case-item"><strong>7. PTSD:</strong> History bypassed via frequency shift.</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Mini Player -->
+    <div class="mini-player-container">
+        <div id="mini-controls" class="mini-player-controls ltr">
+            <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-2">
+                <div class="flex items-center gap-2">
+                    <div id="playing-indicator" class="w-1.5 h-1.5 rounded-full bg-indigo-500 hidden animate-pulse"></div>
+                    <p id="audio-title" class="text-[9px] font-bold text-white uppercase tracking-tighter">Audio</p>
+                </div>
+                <button onclick="togglePlayerPanel()" class="text-slate-500 hover:text-white"><i class="fas fa-times text-[10px]"></i></button>
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-tachometer-alt text-[10px] text-slate-500"></i>
+                    <input type="range" id="speed-slider" min="0.5" max="2" step="0.1" value="1" oninput="updateSpeed(this.value)" class="flex-grow h-1 accent-indigo-400 bg-slate-700 rounded-lg cursor-pointer">
+                    <span id="speed-indicator" class="text-[9px] font-mono text-indigo-400 w-6">1.0</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <i class="fas fa-volume-up text-[10px] text-slate-500"></i>
+                    <input type="range" id="vol-slider" min="0" max="1" step="0.1" value="1" oninput="updateVolume(this.value)" class="flex-grow h-1 accent-indigo-400 bg-slate-700 rounded-lg cursor-pointer">
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <button onclick="togglePlayerPanel()" class="w-9 h-9 rounded-full bg-slate-900 border border-slate-700 text-slate-400 flex items-center justify-center hover:bg-slate-700 transition shadow-lg">
+                <i class="fas fa-cog text-xs"></i>
+            </button>
+            <button onclick="toggleAudio()" id="play-btn" class="player-toggle-btn">
+                <i class="fas fa-play text-sm ml-0.5"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'en';
+        const synth = window.speechSynthesis;
+        let utterance = null;
+
+        function toggleLangDropdown() {
+            const dropdown = document.getElementById('langDropdown');
+            const chevron = document.getElementById('langChevron');
+            dropdown.classList.toggle('open');
+            chevron.style.transform = dropdown.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        window.addEventListener('click', function(e) {
+            if (!document.getElementById('langDropdown').contains(e.target)) {
+                document.getElementById('langDropdown').classList.remove('open');
+                document.getElementById('langChevron').style.transform = 'rotate(0deg)';
+            }
+        });
+
+        function setLang(lang) {
+            currentLang = lang;
+            const body = document.body;
+            const sidebar = document.getElementById('sidebar');
+            const label = document.getElementById('activeLangLabel');
+
+            if (lang === 'fa') { 
+                body.classList.replace('ltr', 'rtl'); sidebar.classList.replace('border-r', 'border-l'); 
+                label.innerText = 'زبان: فارسی';
+            } else { 
+                body.classList.replace('rtl', 'ltr'); sidebar.classList.replace('border-l', 'border-r'); 
+                label.innerText = lang === 'en' ? 'Lang: English' : 'Dil: Türkçe';
+            }
+
+            document.querySelectorAll('.lang-fa, .lang-en, .lang-tr').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll(`.lang-${lang}`).forEach(el => el.classList.remove('hidden'));
+            
+            const labels = {
+                en: ["Cover & Introduction", "Chapter 1: The Observer Effect", "Chapter 2: Superposition", "Chapter 3: Entanglement", "Chapter 4: Tunneling"],
+                tr: ["Kapak ve Giriş", "Bölüm 1: Gözlemci Etkisi", "Bölüm 2: Süperpozisyon", "Bölüm 3: Dolanıklık", "Bölüm 4: Tünelleme"],
+                fa: ["جلد و مقدمه کتاب", "۱. اثر ناظر کوانتومی", "۲. برهم‌نهی روان", "۳. درهم‌تنیدگی متقابل", "۴. تونل‌زنی ذهنی"]
+            };
+            document.querySelectorAll('.nav-item').forEach((btn, idx) => btn.innerText = labels[lang][idx]);
+            document.getElementById('langDropdown').classList.remove('open');
+            document.getElementById('langChevron').style.transform = 'rotate(0deg)';
+            
+            synth.cancel();
+            document.getElementById('play-btn').innerHTML = '<i class="fas fa-play text-xs ml-0.5"></i>';
+        }
+
+        function nav(sectionId) {
+            const wasSpeaking = synth.speaking;
+            synth.cancel(); 
+
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            const target = document.getElementById(sectionId);
+            if(target) target.classList.add('active');
+            
+            document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('sidebar-active'));
+            if(event && event.currentTarget.classList.contains('nav-item')) event.currentTarget.classList.add('sidebar-active');
+            
+            document.getElementById('audio-title').innerText = target.querySelector('h2').innerText;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (window.innerWidth < 768) toggleSidebar();
+
+            if (wasSpeaking && currentLang !== 'fa') {
+                setTimeout(() => toggleAudio(), 300);
+            } else {
+                document.getElementById('play-btn').innerHTML = '<i class="fas fa-play text-sm ml-0.5"></i>';
+            }
+        }
+
+        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('hidden'); }
+        function togglePlayerPanel() { const panel = document.getElementById('mini-controls'); panel.style.display = (panel.style.display === 'block' ? 'none' : 'block'); }
+
+        function toggleAudio() {
+            if (currentLang === 'fa') { 
+                alert("Narration is not available for Persian. / صوتی موجود نیست."); 
+                return; 
+            }
+            if (synth.speaking && !synth.paused) { 
+                synth.pause(); 
+                document.getElementById('play-btn').innerHTML = '<i class="fas fa-play text-sm ml-0.5"></i>'; 
+                return; 
+            }
+            if (synth.paused) { 
+                synth.resume(); 
+                document.getElementById('play-btn').innerHTML = '<i class="fas fa-pause text-sm"></i>'; 
+                return; 
+            }
+            const activeSection = document.querySelector('.content-section.active');
+            const textToRead = activeSection.innerText; 
+            utterance = new SpeechSynthesisUtterance(textToRead);
+            utterance.lang = (currentLang === 'en' ? 'en-US' : 'tr-TR');
+            utterance.rate = document.getElementById('speed-slider').value;
+            utterance.volume = document.getElementById('vol-slider').value;
+            utterance.onstart = () => { 
+                document.getElementById('play-btn').innerHTML = '<i class="fas fa-pause text-sm"></i>'; 
+                document.getElementById('playing-indicator').classList.remove('hidden'); 
+            };
+            utterance.onend = () => { 
+                document.getElementById('play-btn').innerHTML = '<i class="fas fa-play text-sm ml-0.5"></i>'; 
+                document.getElementById('playing-indicator').classList.add('hidden'); 
+            };
+            synth.speak(utterance);
+        }
+
+        function updateSpeed(val) { 
+            document.getElementById('speed-indicator').innerText = parseFloat(val).toFixed(1); 
+            if (synth.speaking) { synth.cancel(); toggleAudio(); } 
+        }
+        function updateVolume(val) { if (utterance) utterance.volume = val; }
+
+        window.onload = () => { setLang('en'); };
+    </script>
+</body>
+</html>
