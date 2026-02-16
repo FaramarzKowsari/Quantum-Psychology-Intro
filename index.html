@@ -43,9 +43,9 @@
             font-weight: 700;
         }
 
-        .block-theory { border-left: 5px solid #6366f1; background: rgba(99, 102, 241, 0.08); padding: 2rem; border-radius: 1rem; margin-bottom: 2rem; }
-        .block-life { border-left: 5px solid #fbbf24; background: rgba(251, 191, 36, 0.08); padding: 2rem; border-radius: 1rem; margin-bottom: 2rem; }
-        .block-cases { border-left: 5px solid #10b981; background: rgba(16, 185, 129, 0.08); padding: 2rem; border-radius: 1rem; }
+        .block-theory { border-left: 5px solid #6366f1; background: rgba(99, 102, 241, 0.08); padding: 2rem; border-radius: 1.5rem; margin-bottom: 2rem; }
+        .block-life { border-left: 5px solid #fbbf24; background: rgba(251, 191, 36, 0.08); padding: 2rem; border-radius: 1.5rem; margin-bottom: 2rem; }
+        .block-cases { border-left: 5px solid #10b981; background: rgba(16, 185, 129, 0.08); padding: 2rem; border-radius: 1.5rem; }
 
         .rtl .block-theory, .rtl .block-life, .rtl .block-cases { border-left: none; }
         .rtl .block-theory { border-right: 5px solid #6366f1; }
@@ -67,24 +67,24 @@
             background: rgba(15, 23, 42, 0.98);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1rem;
+            padding: 1.25rem;
             border-radius: 1.5rem;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
             display: none;
-            width: 260px;
+            width: 280px;
             animation: slideIn 0.3s ease-out;
         }
 
         .player-toggle-btn {
-            width: 3rem;
-            height: 3rem;
+            width: 3.5rem;
+            height: 3.5rem;
             border-radius: 50%;
             background: #4f46e5;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -93,8 +93,8 @@
             background: rgba(15, 23, 42, 0.7);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 3rem;
-            padding: 3rem 1rem;
+            border-radius: 4rem;
+            padding: 4rem 1.5rem;
             position: relative;
             overflow: hidden;
         }
@@ -119,18 +119,18 @@
         @keyframes slideIn { from { opacity: 0; transform: translateY(10px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        .case-item { background: rgba(0,0,0,0.2); padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; margin-bottom: 1.5rem; text-align: justify; }
-        .case-item:hover { border-color: rgba(16, 185, 129, 0.5); background: rgba(16, 185, 129, 0.05); }
+        .case-item { background: rgba(0,0,0,0.25); padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; margin-bottom: 1.5rem; text-align: justify; }
+        .case-item:hover { border-color: rgba(16, 185, 129, 0.5); background: rgba(16, 185, 129, 0.08); }
 
         .contact-btn {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 0.75rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 1rem;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.75rem;
+            gap: 0.6rem;
+            font-size: 0.8rem;
             color: #f1f5f9;
             transition: 0.3s;
         }
@@ -144,6 +144,7 @@
         <button onclick="toggleSidebar()" class="text-white p-2"><i class="fas fa-bars text-2xl"></i></button>
     </div>
 
+    <!-- Sidebar -->
     <aside id="sidebar" class="hidden md:flex flex-col w-full md:w-64 bg-slate-950/98 border-r border-slate-800 p-6 sticky top-0 h-screen overflow-y-auto z-40 shadow-2xl">
         <div class="mb-10 text-center md:text-left">
             <h1 id="side-title" class="text-lg font-black text-white leading-tight tracking-tighter uppercase italic">Quantum<br><span class="text-indigo-400 not-italic">Psychology</span></h1>
@@ -170,16 +171,17 @@
         </nav>
 
         <div class="mt-8 pt-6 border-t border-white/5 flex flex-col items-center">
-            <div class="bg-white p-3 rounded-xl shadow-lg hover:scale-105 transition overflow-hidden">
-                <img src="./images/img05.png" alt="ISBN Barcode" class="h-16 w-auto object-contain" onerror="this.src='https://via.placeholder.com/150x60?text=ISBN+978-600-94-1047-7'">
+            <div class="bg-white p-2 rounded-xl shadow-lg hover:scale-105 transition overflow-hidden">
+                <img src="./images/img05.png" alt="ISBN Barcode" class="h-16 w-auto object-contain">
             </div>
             <p class="text-[7px] text-slate-500 font-bold uppercase mt-3 tracking-widest text-center">Global Ed. 2014</p>
         </div>
     </aside>
 
     <main class="flex-grow p-4 md:p-16 overflow-y-auto relative">
-        <div id="book-container" class="max-w-4xl mx-auto">
+        <div id="book-container" class="max-w-5xl mx-auto">
             
+            <!-- SECTION: INTRO -->
             <section id="intro" class="content-section active space-y-12">
                 <div class="cover-card shadow-[0_0_80px_rgba(79,70,229,0.15)]">
                     <div class="relative z-10 flex flex-col items-center text-center">
@@ -189,6 +191,7 @@
                             <h2 class="text-2xl sm:text-4xl md:text-7xl font-black text-white/80 uppercase tracking-tighter leading-none mb-10">PSYCHOLOGY</h2>
                         </div>
                         <div class="h-px w-20 md:w-32 bg-indigo-500 mb-10"></div>
+                        
                         <div class="flex flex-row items-center justify-center gap-4 md:gap-12 mb-10 py-6 px-6 border-y border-white/5 w-full max-w-full">
                             <div class="flex flex-col items-center">
                                 <span class="text-lg md:text-2xl author-name italic whitespace-nowrap leading-none mb-1">Faramarz</span>
@@ -205,7 +208,8 @@
                                 <span class="text-lg md:text-2xl author-name italic whitespace-nowrap leading-none">Hellat</span>
                             </div>
                         </div>
-                        <div class="bg-white p-3 rounded-[1.5rem] border border-white/10 flex flex-col items-center shadow-2xl overflow-hidden scale-110">
+
+                        <div class="bg-white p-3 rounded-[1.5rem] shadow-2xl overflow-hidden scale-110">
                             <img src="./images/img05.png" alt="Book ISBN Barcode" class="h-20 w-auto object-contain">
                         </div>
                         <p class="text-slate-400 font-black tracking-widest text-[8px] uppercase mt-6">Edition 1.0 • Global Release 2014</p>
@@ -215,17 +219,17 @@
                 <div class="prose prose-invert max-w-none text-lg space-y-12">
                     <div class="lang-en space-y-8 text-justify">
                         <h3 class="text-3xl font-bold text-indigo-300">About the Publication</h3>
-                        <p>This book represents a groundbreaking synergy between theoretical physics and clinical psychology. Published in 2014, it proposes that the human psyche is not a deterministic machine, but a dynamic quantum field of probabilities.</p>
+                        <p>This book represents a groundbreaking synergy between theoretical physics and clinical psychology. Published in 2014, it proposes that the human psyche is not a deterministic machine, but a dynamic quantum field of probabilities. By moving beyond the rigid "diagnostic labels" of classical psychology, this work introduces a paradigm where suffering is viewed as a collapsed wave function that can be returned to a state of potential and healing through the power of non-linear awareness. This version is the culmination of years of research by Faramarz Kowsari, Hamid Kowsari, and Ahmad Hellat.</p>
                         <div class="pt-8 border-t border-white/5 flex flex-wrap gap-4 justify-center md:justify-start">
                             <a href="mailto:info@faramarzkowsari.com" class="contact-btn"><i class="fas fa-envelope"></i> Email</a>
-                            <a href="https://linkedin.com/in/faramarzkowsari" target="_blank" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
-                            <a href="https://play.google.com/store/search?q=Faramarz_Kowsari&c=books" target="_blank" class="contact-btn"><i class="fab fa-google-play"></i> Books on Google Play</a>
+                            <a href="https://linkedin.com/in/faramarzkowsari" target="_blank" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                            <a href="https://play.google.com/store/search?q=Faramarz_Kowsari&c=books" target="_blank" class="contact-btn"><i class="fab fa-google-play"></i> Books</a>
                         </div>
                         <p class="text-sm font-bold text-indigo-200">ISBN: 978-600-94-1047-7</p>
                     </div>
                     <div class="lang-fa hidden space-y-8 rtl text-justify">
                         <h3 class="text-3xl font-bold text-indigo-300 text-right">درباره این اثر</h3>
-                        <p>کتاب «پیش‌درآمدی بر روانشناسی کوانتومی» که در سال ۲۰۱۴ میلادی منتشر شد، نمایانگر تلاشی نوآورانه برای پیوند میان دنیای فیزیک نظری و روان‌شناسی بالینی است. نویسندگان این اثر، فرامرز کوثری، حمید کوثری و احمد حلت، با این دیدگاه که روان انسان نه یک ماشین قطعی، بلکه میدانی پویا از احتمالات کوانتومی است، پارادایم جدیدی را در درمان مطرح کردند. این کتاب با عبور از برچسب‌های صلب تشخیصی، چارچوبی را معرفی می‌کند که در آن رنج نه به عنوان یک وضعیت ثابت، بلکه به عنوان یک تابع موج فروپاشیده دیده می‌شود که می‌تواند از طریق آگاهی غیرخطی، به حالت پتانسیل و شفا بازگردد.</p>
+                        <p>کتاب «پیش‌درآمدی بر روانشناسی کوانتومی» که نخستین بار در سال ۲۰۱۴ میلادی منتشر شد، نمایانگر تلاشی نوآورانه برای پیوند میان دنیای فیزیک نظری و روان‌شناسی بالینی است. نویسندگان این اثر، فرامرز کوثری، حمید کوثری و احمد حلت، با این دیدگاه که روان انسان نه یک ماشین قطعی، بلکه میدانی پویا از احتمالات کوانتومی است، پارادایم جدیدی را در درمان مطرح کردند. این کتاب با عبور از برچسب‌های صلب تشخیصی، چارچوبی را معرفی می‌کند که در آن رنج نه به عنوان یک وضعیت ثابت، بلکه به عنوان یک تابع موج فروپاشیده دیده می‌شود که می‌تواند به حالت پتانسیل و شفا بازگردد.</p>
                         <div class="pt-8 border-t border-white/5 flex flex-wrap gap-4 ltr justify-center md:justify-start">
                             <a href="mailto:info@faramarzkowsari.com" class="contact-btn"><i class="fas fa-envelope"></i> Email</a>
                             <a href="https://linkedin.com/in/faramarzkowsari" target="_blank" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
@@ -238,8 +242,8 @@
                         <p>Bu kitap, teorik fizik ile klinik psikoloji arasındaki çığır açan bir sinerjiyi temsil etmektedir. 2014 yılında yayınlanan bu eser, insan ruhunun deterministik bir makine değil, dinamik bir olasılıklar kuantum alanı olduğunu öne sürmektedir. Klasik psikolojinin katı "tanısal etiketlerinin" ötesine geçen bu çalışma, acının ancak bilinçli bir gözlemci tarafından dondurulmuş bir dalga fonksiyonu olarak görüldüğü ve doğrusal olmayan farkındalığın gücüyle iyileşme ve potansiyel durumuna geri döndürülebileceği bir paradigma sunmaktadır.</p>
                         <div class="pt-8 border-t border-white/5 flex flex-wrap gap-4 justify-center md:justify-start">
                             <a href="mailto:info@faramarzkowsari.com" class="contact-btn"><i class="fas fa-envelope"></i> E-posta</a>
-                            <a href="https://linkedin.com/in/faramarzkowsari" target="_blank" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn Profili</a>
-                            <a href="https://play.google.com/store/search?q=Faramarz_Kowsari&c=books" target="_blank" class="contact-btn"><i class="fab fa-google-play"></i> Google Play Kitaplar</a>
+                            <a href="https://linkedin.com/in/faramarzkowsari" target="_blank" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                            <a href="https://play.google.com/store/search?q=Faramarz_Kowsari&c=books" target="_blank" class="contact-btn"><i class="fab fa-google-play"></i> Kitaplar</a>
                         </div>
                         <p class="text-sm font-bold text-indigo-200">ISBN: 978-600-94-1047-7</p>
                     </div>
@@ -257,44 +261,56 @@
                 
                 <div class="space-y-10">
                     <div class="block-theory">
-                        <h4 class="text-indigo-400 font-bold mb-4 text-2xl ltr">Summary: The Gaze of Creation</h4>
-                        <div class="lang-en text-justify">The Observer Effect states that a quantum system remains in a wave state until observation forces a "collapse" into reality. In psychology, our perception freezes our fluid potential into suffering.</div>
-                        <div class="lang-fa hidden rtl text-justify text-right">نظریه «اثر ناظر» بیان می‌کند که یک سیستم کوانتومی تا زمانی که مشاهده نشود، در حالتی موجی از تمام احتمالات ممکن باقی می‌ماند. اما به محض مشاهده توسط یک ناظر آگاه، تابع موج به یک واقعیت واحد و صلب «فرو می‌پاشد». در روانشناسی، این به آن معناست که حالات درونی ما ثابت نیستند؛ بلکه نحوه نگاه ما به خودمان و مشکلاتمان (خواه با ترس، برچسب‌های بالینی یا قضاوت‌های قطعی) به عنوان عمل «اندازه‌گیری» عمل کرده و پتانسیل سیال روان ما را در قالب یک دیوار صلب از رنج منجمد می‌کند.</div>
-                        <div class="lang-tr hidden text-justify">Gözlemci Etkisi, bir kuantum sisteminin bilinçli bir gözlem gerçekleşene kadar tüm olası sonuçların dalga durumunda kaldığı ilkesidir. Bakışın kendisi, dalga fonksiyonunu tek bir kesin gerçekliğe "çökmeye" zorlar.</div>
+                        <h4 class="text-indigo-400 font-bold mb-4 text-2xl ltr">Summary / خلاصه نظریه / Özet</h4>
+                        <p class="lang-en text-justify">The Observer Effect is the principle that a quantum system remains in a wave state of all possible outcomes until a conscious observation occurs. The very act of looking forces the wave function to "collapse" into a single, definite reality. In psychology, this suggests that our inner states are not fixed; rather, the way we perceive ourselves acts as the measurement that freezes our fluid potential into a solid wall of suffering.</p>
+                        <p class="lang-fa hidden rtl text-justify text-right">نظریه «اثر ناظر» بیان می‌کند که یک سیستم کوانتومی تا زمانی که مشاهده نشود، در حالتی موجی از تمام احتمالات ممکن باقی می‌ماند. اما به محض مشاهده توسط یک ناظر آگاه، تابع موج به یک واقعیت واحد و صلب «فرو می‌پاشد». در روانشناسی، این به آن معناست که حالات درونی ما ثابت نیستند؛ بلکه نحوه نگاه ما به خودمان (خواه با ترس، برچسب‌های بالینی یا قضاوت‌های قطعی) به عنوان عمل «اندازه‌گیری» عمل کرده و پتانسیل سیال روان ما را در قالب یک دیوار صلب از رنج منجمد می‌کند.</p>
+                        <p class="lang-tr hidden text-justify">Gözlemci Etkisi, bir kuantum sisteminin bilinçli bir gözlem gerçekleşene kadar tüm olası sonuçların dalga durumunda kaldığı ilkesidir. Bakışın kendisi, dalga fonksiyonunu tek bir kesin gerçekliğe "çökmeye" zorlar. Psikolojide bu, iç dünyamıza bakış şeklimizin (ister yargı, ister korkuyla olsun) akışkan potansiyelimizi katı bir acı deneyimine donduran ölçüm eylemi olarak işlev gördüğünü ortaya koyar.</p>
                     </div>
 
                     <div class="block-life">
-                        <h4 class="text-amber-400 font-bold mb-4 text-2xl ltr">Therapeutic Deep-Dive: The Sculptor of Light</h4>
+                        <h4 class="text-amber-400 font-bold mb-4 text-2xl ltr">Psychotherapy Application / کاربرد در درمان / Klinik Uygulama</h4>
                         <div class="lang-fa hidden rtl text-justify text-right space-y-6">
-                            <p>در اتاق درمان کوانتومی، ما فراتر از رویکرد نیوتونیِ «تعمیر ماشین‌های خراب» حرکت می‌کنیم. با استفاده از استعاره **«پیکرتراش نور»**، درمانگر به مراجع می‌آموزد که او سنگِ مرمرِ صلبی نیست که توسط سرنوشت تراشیده می‌شود، بلکه خودِ نوری است که تعیین می‌کند سایه‌ها کجا بیفتند. اگر بیماری خود را از دریچه «من افسرده‌ام» مشاهده کند، در حال انجام یک اندازه‌گیری با چگالی بالاست که میدان عصبی او را در وضعیتی ثابت از رنج منجمد می‌کند. نقش درمانگر معرفی «نگاه کوانتومی» است؛ آگاهیِ بدون قضاوتی که از فروپاشاندن تابع موج خودداری می‌کند و اجازه می‌دهد هویت بیمار به حالت سیالی بازگردد که در آن تغییر امکان‌پذیر است.</p>
-                            <p>ما از **استعاره نورافکن** استفاده می‌کنیم تا توضیح دهیم که در تاریکیِ ناخودآگاه، تمام احتمالات (شادی، تاب‌آوری، رنج) به طور همزمان وجود دارند. رنج شما تنها به این دلیل واقعی است که نورافکن شما روی آن فرکانسِ خاص قفل شده است. با پخش کردن آگاهانه تمرکز به سمت «فضای بین افکار» یا مشاهده مشکل بدون برچسب زدن کلامی، چگالی مشکل شروع به ذوب شدن می‌کند. این صرفاً یک بازسازی شناختی نیست؛ بلکه تغییری بنیادین در تعامل ناظر با میدان احتمالات است که به معنای واقعی کلمه، تجربه نورولوژیک واقعیت را بازآرایی می‌کند.</p>
+                            <p>در اتاق درمان کوانتومی، ما فراتر از رویکرد نیوتونیِ «تعمیر ماشین‌های خراب» حرکت می‌کنیم. با استفاده از استعاره **«پیکرتراش نور»**، درمانگر به مراجع می‌آموزد که او سنگِ مرمرِ صلبی نیست که توسط سرنوشت تراشیده می‌شود، بلکه خودِ نوری است که تعیین می‌کند سایه‌ها کجا بیفتند. اگر بیماری خود را از دریچه «من افسرده‌ام» مشاهده کند، در حال منجمد کردن میدان عصبی خود در وضعیتی ثابت از رنج است. نقش درمانگر معرفی «نگاه کوانتومی» است؛ آگاهیِ بدون قضاوتی که از فروپاشاندن تابع موج خودداری می‌کند و اجازه می‌دهد هویت بیمار به حالت سیالی بازگردد که در آن تغییر امکان‌پذیر است.</p>
+                            <p>ما از **استعاره نورافکن** استفاده می‌کنیم تا توضیح دهیم که در تاریکیِ ناخودآگاه، تمام احتمالات (شادی، تاب‌آوری، رنج) به طور همزمان وجود دارند. رنج شما تنها به این دلیل واقعی است که نورافکنِ توجه شما روی آن فرکانسِ خاص قفل شده است. با پخش کردن آگاهانه تمرکز به سمت «فضای بین افکار» یا مشاهده مشکل بدون برچسب زدن کلامی، چگالی مشکل شروع به ذوب شدن می‌کند. این صرفاً یک بازسازی شناختی نیست؛ بلکه تغییری بنیادین در تعامل ناظر با میدان احتمالات است که تجربه نورولوژیک واقعیت را بازآرایی می‌کند.</p>
                         </div>
-                        <div class="lang-en text-justify space-y-4">
-                            <p>In therapy, we guide the client to shift their frequency of observation, allowing the solid "particle of suffering" to dissolve back into a wave of healing possibilities.</p>
+                        <div class="lang-en text-justify space-y-6">
+                            <p>In therapy, we view the client's identity as a "Probability Cloud." Using the **Sculptor of Light** metaphor, the therapist teaches that the client is not the marble being carved by fate, but the light defining the shadows. Shifting the frequency of observation allows the solid "particle of suffering" to dissolve back into a wave of healing possibilities, moving from "What is wrong with me?" to "What version of reality am I observing?"</p>
+                            <p>The **Searchlight Metaphor** explains that in the dark unconscious, all possibilities exist at once. Suffering is only real because your attention is locked onto that frequency. By diffusing the gaze or shifting focus to the "space between thoughts," the density of trauma decreases. This quantum re-calibration allows the wave function of the self to re-arrange into a more coherent state, literally changing the biological experience of crisis.</p>
                         </div>
-                        <div class="lang-tr hidden text-justify space-y-4">
-                            <p>Kuantum terapi odasında, terapist danışana kadere boyun eğen katı bir mermer olmadığını، aksine gölgelerin nereye düşeceğini belirleyen ışığın kendisi olduğunu öğretir.</p>
+                        <div class="lang-tr hidden text-justify space-y-6">
+                            <p>Kuantum terapide, "bozuk makineleri" tamir etmeye çalışan yaklaşımdan uzaklaşırız. **Işığın Heykeltıraşı** metaforuyla, terapist danışana kadere boyun eğen katı bir mermer olmadığını, gölgelerin nereye düşeceğini belirleyen ışığın kendisi olduğunu öğretir. "Ben depresifim" merceğinden bakmak, sinirsel alanı acıya çökerterek dondurur. Terapistin rolü, dalgayı çökertmeyi reddeden yargısız bir farkındalık olan "Kuantum Bakışı"nı tanıtmaktır.</p>
+                            <p>Bilinçaltının karanlığında tüm olasılıkların aynı anda var olduğunu açıklamak için **Işıldak Metaforunu** kullanırız. Acınız yalnızca ışıldağınız o belirli frekansa kilitlendiği için gerçektir. Odağı "düşünceler arasındaki boşluğa" kaydırarak veya sorunu etiketsiz gözlemleyerek, sorunun yoğunluğu çözülmeye başlar. Bu, gerçekliğin nörolojik deneyimini tam anlamıyla yeniden yapılandıran olasılık alanı ile etkileşimdeki temel bir değişimdir.</p>
                         </div>
                     </div>
 
                     <div class="block-cases">
-                        <h4 class="text-emerald-400 font-bold mb-6 text-2xl ltr">7 Extensive Case Studies</h4>
+                        <h4 class="text-emerald-400 font-bold mb-6 text-2xl ltr">7 Clinical Case Studies / مثال‌های موردی / Vaka Analizleri</h4>
                         <div class="grid gap-6 lang-fa hidden rtl text-right">
-                            <div class="case-item"><strong>۱. بن‌بست مالی و فروپاشی ثروت:</strong> تاجری که در آستانه ورشکستگی بود، طلبکاران را به عنوان «ذرات صلب شکست» مشاهده می‌کرد. با تغییر پروتکل مشاهده و دیدن بدهی به عنوان «نوسان موقت در جریان نقدینگی»، او از منجمد کردن واقعیتِ فقر دست برداشت. در عرض دو هفته، سه ایده جدید که قبلاً به دلیل «کوریِ ناظر» ندیده بود، در میدان احتمالاتش ظاهر شد و قراردادهای جدیدی امضا کرد.</div>
-                            <div class="case-item"><strong>۲. اضطراب اجتماعی و لنز قضاوت:</strong> دانشجویی حس می‌کرد چشمان همه در کلاس مانند لیزر او را نقد می‌کنند. او درک کرد که «مشاهده تهاجمی» خودش از محیط است که واقعیتِ قضاوت دیگران را خلق می‌کند. با تمرین «مشاهده خنثی» و پخش کردن نگاهش به کل فضا، او اجازه داد واقعیتِ محیط به حالت موجی برگردد و اضطرابش به محض اینکه تماشای «دشمنی» را متوقف کرد، ذوب شد.</div>
-                            <div class="case-item"><strong>۳. میگرن مزمن و فیزیک درد:</strong> بیماری که سال‌ها با میگرن می‌جنگید، همیشه روی مرکز درد «فوکوس» می‌کرد. ما به او یاد دادیم به جای درد، «فضای کوانتومی اطراف درد» را مشاهده کند. با این تغییر در عملِ مشاهده، تابع موج عصبی او از حالتِ صلبِ «سیگنال درد» خارج شد. او متوجه شد که درد، بدون ناظری که به آن خیره شود، نمی‌تواند چگالی خود را حفظ کند و شدت آن ۷۰ درصد کاهش یافت.</div>
-                            <div class="case-item"><strong>۴. ترومای بازماندگان و بازنویسی تاریخ:</strong> یک سرباز قدیمی کابوس‌های جنگ را به عنوان واقعیت‌های ثابت گذشته می‌دید که او را منجمد کرده بودند. از طریق مشاهده خاطره به عنوان «بسته‌های اطلاعاتی نوری» به جای «وقایع صلب»، او موفق شد پیوند عاطفی با خاطره را قطع کند. او آموخت که گذشته نیز در حالت کوانتومی است و نحوه مشاهده او در اکنون، می‌تواند سنگینی آن را در میدان عصبی‌اش تغییر دهد.</div>
-                            <div class="case-item"><strong>۵. وسواس فکری و ابرهای احتمالات:</strong> مراجعی که با وسواس شستشو درگیر بود، میکروب‌ها را به عنوان ذرات قطعی مرگبار می‌دید. با آموزش مشاهده افکار به عنوان «ابرهای گذرا» که ناظر مجبور به فرود آوردن باران (عمل وسواسی) روی آن‌ها نیست، او توانست بدون درگیری با فکر، از کنار آن عبور کند. او آموخت که فکر وسواسی تنها زمانی به رفتار تبدیل می‌شود که ناظر با ترس به آن هویت ببخشد.</div>
-                            <div class="case-item"><strong>۶. ترس از پرواز و لرزش ذرات:</strong> مسافری که لرزش هواپیما را نشانه سقوط می‌دید، یاد گرفت لرزش را به عنوان «رقص مولکول‌های هوا» مشاهده کند. این تغییر در «معنایِ مشاهده»، باعث شد سیستم عصبی او سیگنال خطر را خاموش کند. او به جای مشاهده «مرگ احتمالی»، شروع به مشاهده «پویاییِ انرژی» کرد که واقعیت پرواز را برایش به یک تجربه فیزیکی خنثی و حتی لذت‌بخش تبدیل کرد.</div>
-                            <div class="case-item"><strong>۷. اهمال‌کاری و سد احتمالات:</strong> نویسنده‌ای که مقابل صفحه خالی قفل شده بود، با مشاهده «عدم» به عنوان «میدان تمام کلمات ممکن»، توانست از منجمد شدن در حالتِ «نمی‌توانم» رها شود. او درک کرد که خیره شدن به صفحه خالی با حسِ ناتوانی، همان مشاهده‌ای است که «ننوشتن» را خلق می‌کند. با تغییر نگاه به «پتانسیلِ کلمات»، تابع موج خلاقیتش به سمت عمل حرکت کرد و اولین پاراگراف خلق شد.</div>
+                            <div class="case-item"><strong>۱. بن‌بست مالی:</strong> تاجری که در آستانه ورشکستگی بود، طلبکاران را به عنوان «ذرات صلب شکست» مشاهده می‌کرد. با تغییر پروتکل مشاهده و دیدن بدهی به عنوان «نوسان موقت در جریان نقدینگی»، او از منجمد کردن واقعیتِ فقر دست برداشت. در عرض دو هفته، سه ایده جدید که قبلاً به دلیل «کوریِ ناظر» ندیده بود، در میدان احتمالاتش ظاهر شد و قراردادهای جدیدی امضا کرد.</div>
+                            <div class="case-item"><strong>۲. اضطراب اجتماعی:</strong> دانشجویی حس می‌کرد چشمان همه مانند لیزر او را نقد می‌کنند. او درک کرد که «مشاهده تهاجمی» خودش از محیط است که واقعیتِ قضاوت دیگران را خلق می‌کند. با تمرین «مشاهده خنثی» و پخش کردن نگاهش به کل فضا، او اجازه داد واقعیتِ محیط به حالت موجی برگردد و اضطرابش به محض اینکه تماشای «دشمنی» را متوقف کرد، ذوب شد.</div>
+                            <div class="case-item"><strong>۳. میگرن مزمن:</strong> بیماری که سال‌ها با میگرن می‌جنگید، همیشه روی مرکز درد «فوکوس» می‌کرد. ما به او یاد دادیم به جای درد، «فضای کوانتومی اطراف درد» را مشاهده کند. با این تغییر در عملِ مشاهده، تابع موج عصبی او از حالتِ صلبِ «سیگنال درد» خارج شد. او متوجه شد که درد، بدون ناظری که به آن خیره شود، نمی‌تواند چگالی خود را حفظ کند و شدت آن ۷۰ درصد کاهش یافت.</div>
+                            <div class="case-item"><strong>۴. ترومای بازماندگان:</strong> یک سرباز قدیمی کابوس‌های جنگ را به عنوان واقعیت‌های ثابت گذشته می‌دید. از طریق مشاهده خاطره به عنوان «بسته‌های اطلاعاتی نوری» به جای «وقایع صلب»، او موفق شد پیوند عاطفی با خاطره را قطع کند. او آموخت که گذشته نیز در حالت کوانتومی است و نحوه مشاهده او در اکنون، می‌تواند سنگینی آن را در میدان عصبی‌اش تغییر دهد.</div>
+                            <div class="case-item"><strong>۵. وسواس فکری:</strong> مراجعی که با وسواس شستشو درگیر بود، میکروب‌ها را به عنوان ذرات قطعی مرگبار می‌دید. با آموزش مشاهده افکار به عنوان «ابرهای گذرا» که ناظر مجبور به فرود آوردن باران (عمل وسواسی) روی آن‌ها نیست، او توانست بدون درگیری با فکر، از کنار آن عبور کند. او آموخت که فکر وسواسی تنها زمانی به رفتار تبدیل می‌شود که ناظر با ترس به آن هویت ببخشد.</div>
+                            <div class="case-item"><strong>۶. ترس از پرواز:</strong> مسافری که لرزش هواپیما را نشانه سقوط می‌دید، یاد گرفت لرزش را به عنوان «رقص مولکول‌های هوا» مشاهده کند. این تغییر در «معنایِ مشاهده»، باعث شد سیستم عصبی او سیگنال خطر را خاموش کند. او به جای مشاهده «مرگ احتمالی»، شروع به مشاهده «پویاییِ انرژی» کرد که واقعیت پرواز را به یک تجربه فیزیکی خنثی تبدیل کرد.</div>
+                            <div class="case-item"><strong>۷. اهمال‌کاری:</strong> نویسنده‌ای که مقابل صفحه خالی قفل شده بود، با مشاهده «عدم» به عنوان «میدان تمام کلمات ممکن»، توانست از منجمد شدن در حالتِ «نمی‌توانم» رها شود. او درک کرد که خیره شدن به صفحه خالی با حسِ ناتوانی، همان مشاهده‌ای است که «ننوشتن» را خلق می‌کند. با تغییر نگاه به «پتانسیلِ کلمات»، تابع موج خلاقیتش به سمت عمل حرکت کرد.</div>
                         </div>
-                        <div class="grid gap-6 lang-en">
-                            <div class="case-item"><strong>1. Financial Stasis:</strong> A businessman facing bankruptcy viewed creditors as "solid particles of failure." By shifting to observe debt as a "temporary flux in liquidity," he stopped freezing the reality of loss. New contracts manifested within two weeks.</div>
-                            <!-- ... existing EN cases ... -->
+                        <div class="grid gap-6 lang-en text-justify">
+                            <div class="case-item"><strong>1. Financial Stasis:</strong> A businessman facing bankruptcy viewed creditors as "solid particles of failure." By shifting to observe debt as a "temporary flux in liquidity," he stopped freezing the reality of loss. Within two weeks, three new opportunities that were previously hidden by his "observer blindness" manifested in his probability field, leading to new contracts.</div>
+                            <div class="case-item"><strong>2. Social Anxiety:</strong> A student felt that every eye in the room was a judgmental laser. He realized that his own "aggressive observation" of the environment was creating the reality of being judged. By practicing "Neutral Observation," he allowed the social field to return to a wave state, and his anxiety dissolved as soon as he stopped watching for hostility.</div>
+                            <div class="case-item"><strong>3. Chronic Migraine:</strong> A patient fighting years of migraines always focused on the center of the pain. We taught her to observe the "quantum space around the pain" instead. This change in the act of measurement caused her neural wave function to un-collapse from the "pain signal" state, reducing intensity by 70%.</div>
+                            <div class="case-item"><strong>4. PTSD Rewriting:</strong> A veteran saw war nightmares as fixed historical facts. By observing the memory as "light information packets" rather than "solid events," he managed to decouple the emotional charge. He learned that the past is also in a quantum state, and his current observation could shift its weight within his neurological field.</div>
+                            <div class="case-item"><strong>5. OCD and Clouds:</strong> A patient with cleaning compulsions saw germs as definite deadly particles. By learning to observe thoughts as "transient clouds" that the observer is not forced to precipitate into action, he learned to coexist with the thought without collapsing into the ritual, realizing the thought only gains power when he gives it identity.</div>
+                            <div class="case-item"><strong>6. Fear of Flying:</strong> A traveler who saw turbulence as a sign of crashing learned to observe it as the "dance of air molecules." This shift in the quality of observation caused the nervous system to shut down the danger signal. Instead of observing "probable death," he observed "energy dynamics," turning the flight into a neutral experience.</div>
+                            <div class="case-item"><strong>7. Procrastination:</strong> A writer blocked by a blank page viewed "nothingness" as a barrier. By observing the "void" as a field of all possible words instead, he stopped freezing the state of "inability." This shift in perspective allowed his creative wave function to collapse into writing.</div>
                         </div>
                         <div class="grid gap-6 lang-tr hidden text-justify">
-                            <div class="case-item"><strong>1. Finansal Durgunluk:</strong> İflasın eşiğindeki bir iş adamı، alacaklıları "katı başarısızlık parçacıkları" olarak görüyordu. Gözlem protokolünü değiştirince iki hafta içinde yeni fırsatlar belirdi.</div>
-                            <!-- ... existing TR cases ... -->
+                            <div class="case-item"><strong>1. Finansal Durgunluk:</strong> İflasın eşiğindeki iş adamı, borcu "nakit akışındaki geçici dalgalanma" olarak görünce kayıp gerçekliğini dondurmayı bıraktı. İki hafta içinde, daha önce fark etmediği üç yeni fırsat belirdi ve yeni sözleşmeler imzaladı.</div>
+                            <div class="case-item"><strong>2. Sosyal Kaygı:</strong> Bir öğrenci çevreyi "agresif gözlemlemesinin" yargılanma gerçekliğini yarattığını fark etti. Nötr gözlem pratiğiyle sosyal alanın dalga durumuna dönmesine izin verdi ve düşmanlık aramayı bıraktığı an kaygısı eridi.</div>
+                            <div class="case-item"><strong>3. Kronik Migren:</strong> Migren hastasına ağrı yerine "ağrının etrafındaki boşluğu" gözlemlemesi öğretildi. Bu ölçüm eylemi değişimi, sinirsel dalga fonksiyonunu ağrı sinyalinden çıkardı ve şiddet %70 azaldı.</div>
+                            <div class="case-item"><strong>4. TSSB ve Tarih:</strong> Eski asker travmayı "katı olay" yerine "ışık bilgi paketi" olarak gözlemleyerek duygusal yükü ayırmayı başardı. Geçmişin de kuantum durumunda olduğunu ve bugünkü gözleminin ağırlığı değiştirebileceğini öğrendi.</div>
+                            <div class="case-item"><strong>5. OKB Bulutları:</strong> Düşünceleri eyleme zorlamayan "geçici bulutlar" olarak gören hasta, ritüele çökmeden düşünceyle var olmayı öğrendi. Düşüncenin ancak ona kimlik verdiğinde güç kazandığını fark etti.</div>
+                            <div class="case-item"><strong>6. Uçuş Korkusu:</strong> Türbülansı "hava moleküllerinin dansı" olarak gözlemleyen yolcu, tehlike sinyalini nötr bir deneyime dönüştürdü. Ölüm olasılığı yerine enerji dinamiklerini gözlemleyerek sükunete ulaştı.</div>
+                            <div class="case-item"><strong>7. Erteleme Bariyeri:</strong> Boş sayfayı engel değil, "kelimeler alanı" olarak gören yazar, yaratıcı dalga fonksiyonunu eyleme çökertti. "Yetersizlik" durumunu dondurmayı bırakınca akış kendiliğinden başladı.</div>
                         </div>
                     </div>
                 </div>
@@ -311,35 +327,56 @@
                 
                 <div class="space-y-10">
                     <div class="block-theory">
-                        <h4 class="text-indigo-400 font-bold mb-4 text-2xl ltr">Summary: The Paradox of Being</h4>
-                        <div class="lang-fa hidden rtl text-justify text-right">نظریه «برهم‌نهی کوانتومی» بیان می‌کند که یک سیستم فیزیکی تا زمانی که مورد انتخاب یا اندازه‌گیری قرار نگیرد، به طور همزمان در تمام حالات نظری ممکن خود وجود دارد (مانند گربه شرودینگر که همزمان هم زنده است و هم مرده). در روانشناسی، این اصل توهم منطق دوتاییِ کلاسیک (یا این یا آن) را می‌شکند؛ به این معنا که روان انسان منظره‌ای وسیع است که در آن حالات عاطفی و هویت‌های به ظاهر متناقض می‌توانند به صورت همزمان حضور داشته باشند و رنج زمانی پدید می‌آید که ما سعی می‌کنیم با حذفِ اجباریِ یک قطب، این میدانِ سیال را در یک حالتِ ثابت منجمد کنیم.</div>
-                        <div class="lang-en text-justify">Quantum Superposition posits that a system can exist in all possible states simultaneously until measurement. In psychology, this reveals that the psyche can hold contradictory emotions at once.</div>
-                        <div class="lang-tr hidden text-justify">Kuantum Süperpozisyonu, fiziksel bir sistemin kesin bir ölçüm yapılana kadar teorik olarak mümkün olan tüm durumlarda aynı anda var olduğu ilkesidir.</div>
+                        <h4 class="text-indigo-400 font-bold mb-4 text-2xl ltr">Summary / خلاصه نظریه / Özet</h4>
+                        <p class="lang-fa hidden rtl text-justify text-right">اصل «برهم‌نهی کوانتومی» بیان می‌کند که یک سیستم فیزیکی تا زمانی که مورد انتخاب یا اندازه‌گیری قطعی قرار نگیرد، به طور همزمان در تمام حالات نظری ممکن خود وجود دارد (مانند گربه شرودینگر که همزمان هم زنده است و هم مرده). در روانشناسی، این اصل توهم منطق دوتاییِ کلاسیک را می‌شکند؛ به این معنا که روان انسان منظره‌ای وسیع است که در آن عواطف و هویت‌های به ظاهر متناقض می‌توانند به صورت همزمان حضور داشته باشند و رنج زمانی پدید می‌آید که ما سعی می‌کنیم با حذفِ اجباریِ یک قطب، این میدانِ سیال را در یک حالتِ ثابت منجمد کنیم.</p>
+                        <p class="lang-en text-justify">Quantum Superposition posits that a physical system simultaneously exists in all theoretically possible states until a definitive choice or measurement occurs. In psychology, this shatters the binary logic of "either/or" (I am either happy or sad). It reveals that the psyche is a vast landscape where contradictory identities exist at once, and healing comes from embracing this "Both/And" state rather than exhausting ourselves by trying to delete one side of our being.</p>
+                        <p class="lang-tr hidden text-justify">Kuantum Süperpozisyonu, fiziksel bir sistemin kesin bir seçim veya ölçüm yapılana kadar teorik olarak mümkün olan tüm durumlarda aynı anda var olduğu ilkesidir. Psikolojide bu, ya "güçlü" ya da "zayıf" olmamız gerektiği yönündeki ikili mantık illüzyonunu paramparça eder. Ruhun, birbiriyle çelişen tüm duygu versiyonlarını aynı anda barındıran bir manzara olduğunu ve iyileşmenin, bir tarafı yok etmeye çalışmak yerine bu "Hem O Hem Bu" durumunu kucaklamaktan geldiğini ortaya koyar.</p>
                     </div>
 
                     <div class="block-life">
-                        <h4 class="text-amber-400 font-bold mb-4 text-2xl ltr">Therapeutic Deep-Dive: The Prism of Integration</h4>
+                        <h4 class="text-amber-400 font-bold mb-4 text-2xl ltr">Therapeutic Deep-Dive / کاربرد در درمان / Klinik Uygulama</h4>
                         <div class="lang-fa hidden rtl text-justify text-right space-y-6">
-                            <p>ما از استعاره **«منشور یکپارچگی»** برای توضیح پیچیدگی‌های وجودی انسان استفاده می‌کنیم. همان‌طور که نور سفید تمام رنگ‌های رنگین‌کمان را در برهم‌نهیِ خود دارد، روح انسان نیز پتانسیلِ تجربه همزمانِ تمام عواطف را داراست. روان‌درمانی سنتی اغلب سعی می‌کند مراجع را به «انتخابِ» رنگِ شادتر مجبور کند، اما روانشناسی کوانتومی به مراجع می‌آموزد که خودِ منشور باشد. وقتی فرد می‌پذیرد که می‌تواند در یک لحظه «هم وحشت‌زده و هم شجاع» یا «هم سوگوار و هم امیدوار» باشد، جنگ داخلی علیه بخش‌هایی از خود پایان می‌یابد. این یکپارچگی مانع از فروپاشیِ هویت در یک حالتِ سنگین مانند «فرد شکست‌خورده» می‌شود و دسترسی به تمام ظرفیت‌های وجودی را حفظ می‌کند.</p>
-                            <p>در تکنیک **«اقیانوس پتانسیل»**، مراجعان هدایت می‌شوند تا تضادهای درونی خود را نه به عنوان اشیاء ثابت، بلکه به عنوان موج‌هایی بر یک اقیانوس واحد تجربه کنند. به جای غرق شدن در موجِ «غم»، مراجع می‌آموزد که موجِ «ظرفیتِ شادی» درست در کنار آن در حال نوسان است و او خودِ اقیانوسی است که هر دو را در بر دارد. این گذار از «هویت‌یابی با یک موج» به «آگاهی از کل اقیانوس»، باعث گسترش سریع مرزهای روانی می‌شود. مراجع دیگر نیازی به سرکوب سایه‌های خود ندارد، بلکه آن‌ها را در میدانِ آگاهی‌اش ادغام می‌کند تا به یک تعادلِ پویا و منعطف در برابر تلاطم‌های زندگی دست یابد.</p>
+                            <p>ما از استعاره **«منشور یکپارچگی»** برای توضیح پیچیدگی‌های وجودی انسان استفاده می‌کنیم. همان‌طور که نور سفید تمام رنگ‌های رنگین‌کمان را در برهم‌نهیِ خود دارد، روح انسان نیز پتانسیلِ تجربه همزمانِ تمام عواطف را داراست. روان‌درمانی سنتی اغلب سعی می‌کند مراجع را به «انتخابِ» رنگِ شادتر مجبور کند، اما روانشناسی کوانتومی به مراجع می‌آموزد که خودِ منشور باشد. وقتی فرد می‌پذیرد که می‌تواند در یک لحظه «هم وحشت‌زده و هم شجاع» یا «هم سوگوار و هم امیدوار» باشد، جنگ داخلی علیه بخش‌هایی از خود پایان می‌یابد و دسترسی به تمام ظرفیت‌های وجودی حفظ می‌شود.</p>
+                            <p>در تکنیک **«اقیانوس پتانسیل»**، مراجعان هدایت می‌شوند تا تضادهای درونی خود را نه به عنوان اشیاء ثابت، بلکه به عنوان موج‌هایی بر یک اقیانوس واحد تجربه کنند. به جای غرق شدن در موجِ «غم»، مراجع می‌آموزد که موجِ «ظرفیتِ شادی» درست در کنار آن در حال نوسان است و او خودِ اقیانوسی است که هر دو را در بر دارد. این گذار از «هویت‌یابی با یک موج» به «آگاهی از کل اقیانوس»، باعث گسترش سریع مرزهای روانی می‌شود. مراجع دیگر نیازی به سرکوب سایه‌های خود ندارد، بلکه آن‌ها را در میدانِ آگاهی‌اش ادغام می‌کند تا به یک تعادلِ پویا دست یابد.</p>
                         </div>
-                        <div class="lang-en text-justify">By embracing the "Both/And" logic, clients learn to integrate contradictory parts of themselves, ending internal conflicts and preventing identity collapse into a single negative state.</div>
+                        <div class="lang-en text-justify space-y-6">
+                            <p>Using the **Prism of Integration** metaphor, we help clients accept internal conflicts. Just as white light contains all rainbow colors in superposition, the human soul contains every potential emotion. Traditional therapy often forces a "choice" between states, but Quantum Psychology guides the client to become the prism itself. When a client accepts they can be "terrified AND courageous" simultaneously, the internal war ends, maintaining access to all colors of their being without fixed collapse.</p>
+                            <p>We introduce the **Ocean of Potential** technique, shifting identity from a single wave (e.g., "Failure") to the entire ocean. Healing is not the removal of the dark wave, but the realization that you are the field containing both contradictory states. This shift from "State-Identification" to "Field-Awareness" allows for rapid expansion. The client no longer fights their shadow; they integrate it into their light, creating a coherent quantum field resilient to life's external stresses.</p>
+                        </div>
+                        <div class="lang-tr hidden text-justify space-y-6">
+                            <p>İnsan karmaşıklığını açıklamak için **Bütünleşme Prizması** metaforunu kullanırız. Beyaz ışığın tüm renkleri süperpozisyon halinde barındırması gibi, insan ruhu da her potansiyel duyguyu içinde taşır. Geleneksel terapi genellikle danışanın "daha iyi" olan rengi seçmesine yardım etmeye çalışır, ancak Kuantum Psikolojisi danışanı prizmanın kendisi olmaya yönlendirir. Bir danışan aynı anda hem "dehşete düşmüş hem de cesur" olabileceğini kabul ettiğinde iç savaş sona erer ve varlığının tüm renklerine erişimi sürer.</p>
+                            <p>**Potansiyel Okyanusu** tekniği ile danışanların çelişkili durumlarını aynı okyanustaki dalgalar olarak deneyimlemelerini sağlarız. "Başarısızlık" dalgasında boğulmak yerine, hemen yanında yükselen "Potansiyel Başarı" dalgasını fark etmeyi öğretiriz. Şifa dalganın yok edilmesi değil, her ikisini de barındıran okyanus olduğunuzun fark edilmesidir. "Durumla Özdeşleşme"den "Alan Farkındalığı"na bu geçiş, benlik kavramının hızla genişlemesini sağlar; kişi artık gölgesiyle savaşmaz, onu ışığıyla bütünleştirir.</p>
+                        </div>
                     </div>
 
                     <div class="block-cases">
-                        <h4 class="text-emerald-400 font-bold mb-6 text-2xl ltr">7 Extensive Case Studies</h4>
+                        <h4 class="text-emerald-400 font-bold mb-6 text-2xl ltr">7 Extensive Case Studies / مثال‌های موردی / Vaka Analizleri</h4>
                         <div class="grid gap-6 lang-fa hidden rtl text-right">
-                            <div class="case-item"><strong>۱. سوگ و شادی در یک کادر:</strong> پدری که فرزندش را از دست داده بود، با هر لبخندی احساس گناه می‌کرد. او آموخت که می‌تواند همزمان «عمیقاً عزادار» و «عمیقاً قدردانِ زیبایی‌های باقی‌مانده» باشد. این پذیرشِ برهم‌نهی، فشار عصبی او را تخلیه کرد و او بدون انکار رنج، دوباره به جریان طبیعی زندگی بازگشت.</div>
-                            <div class="case-item"><strong>۲. دوگانگی شغلی و بحران هویت:</strong> جراحی که آرزو داشت نوازنده باشد اما حس می‌کرد نوازندگی شأن او را پایین می‌آورد. او با پذیرش برهم‌نهیِ «دقتِ جراحی» و «روحِ هنری»، یاد گرفت که این دو صفت مکمل هم هستند. این ادغام باعث شد او به جراحی خلاق‌تر و نوازنده‌ای با انضباط‌تر تبدیل شود و افسردگی‌اش شفا یابد.</div>
-                            <div class="case-item"><strong>۳. انحلال اضطراب تصمیم‌گیری:</strong> مراجعی که بین دو مسیرِ زندگی کاملاً متفاوت فلج شده بود. او با تجسم زندگی در هر دو حالت به صورت همزمان (برهم‌نهی) در جلسات، به جای فرار از یکی، به صلح با هر دو رسید. این سکونِ کوانتومی باعث شد انتخاب واقعی او نه از روی ترس، بلکه از روی انسجامِ درونی‌اش خودبه‌خود ظاهر شود.</div>
-                            <div class="case-item"><strong>۴. ترسوی شجاع در اتاق عمل:</strong> فردی که از جراحی می‌ترسید و همیشه سعی می‌کرد ترس را بکشد. او یاد گرفت که ترس و شجاعت در حالت برهم‌نهی هستند. با پذیرشِ لرزش دستش به عنوان بخشی از میدانِ شجاعتش، او توانست عمل را انجام دهد. جالب اینکه وقتی تضاد را پذیرفت، لرزش دستش به دلیل عدم مقاومت، به سرعت محو شد.</div>
-                            <div class="case-item"><strong>۵. پارادوکس والدگری و خشم:</strong> مادری که از خشم خود نسبت به فرزندش متنفر بود و خود را مادر بدی می‌دید. او با درک برهم‌نهیِ «عشقِ بی‌پایان» و «خستگیِ طاقت‌فرسا»، از تله گناه رها شد. این پذیرش باعث شد خشمش به جای انفجار، به یک موج عاطفی گذرا تبدیل شود که دیگر هویت او را تعریف نمی‌کرد.</div>
-                            <div class="case-item"><strong>۶. تعادل اخلاقی و بخشش:</strong> فردی که از آزارگر سابقش متنفر بود اما می‌خواست فردی «بخشنده» باشد. او آموخت که می‌تواند همزمان «خشمگین» و «بخشنده» باشد. نگه داشتن این دو در برهم‌نهی باعث شد او بدون انکارِ رنجی که کشیده بود، به یک بخششِ اصیل و واقعی دست یابد که از عمقِ پذیرشِ پارادوکس برخاسته بود.</div>
-                            <div class="case-item"><strong>۷. هویتِ «بیمارِ سالم»:</strong> مراجعی با بیماری مزمن که هویتش با «بیمار بودن» گره خورده بود. او یاد گرفت خود را در برهم‌نهیِ «بیماری جسمی» و «سلامتِ بنیادی روح» ببیند. این تغییر نگرش باعث شد او دیگر بر اساس محدودیت‌های بیماری‌اش تصمیم نگیرد و سطح انرژی فیزیکی‌اش به دلیل کاهش استرسِ ذهنی، بهبود یافت.</div>
+                            <div class="case-item"><strong>۱. سوگ و شادی:</strong> پدری که فرزندش را از دست داده بود، حس می‌کرد خندیدن خیانت به سوگ است. با استفاده از اصل برهم‌نهی، او آموخت که می‌تواند همزمان «عمیقاً عزادار» و «عمیقاً قدردانِ زیباییِ زندگی» باشد. این پذیرش تضاد، فشار عصبی او را تخلیه کرد و او بدون انکار رنج، به جریان زندگی بازگشت.</div>
+                            <div class="case-item"><strong>۲. دوگانگی شغلی:</strong> جراحی که آرزو داشت نوازنده باشد اما حس می‌کرد نوازندگی شأن او را پایین می‌آورد. او با پذیرش برهم‌نهیِ «دقتِ جراحی» و «روحِ هنری»، یاد گرفت که این دو صفت مکمل هم هستند. این ادغام باعث شد او به جراحی خلاق‌تر و نوازنده‌ای با انضباط‌تر تبدیل شود و افسردگی پنهانش شفا یابد.</div>
+                            <div class="case-item"><strong>۳. انحلال اضطراب تصمیم:</strong> مراجعی که بین دو مسیرِ زندگی کاملاً متفاوت فلج شده بود. او با تجسم زندگی در هر دو حالت به صورت همزمان (برهم‌نهی) در جلسات، به جای فرار از یکی، به صلح با هر دو رسید. این سکونِ کوانتومی باعث شد انتخاب واقعی او نه از روی ترس، بلکه از روی انسجامِ درونی‌اش ظاهر شود.</div>
+                            <div class="case-item"><strong>۴. ترسوی شجاع:</strong> فردی که از سخنرانی در جمع وحشت داشت، همیشه سعی می‌کرد ترس را بکشد. او یاد گرفت که ترس و شجاعت در حالت برهم‌نهی هستند. با پذیرشِ لرزش صدایش به عنوان بخشی از میدانِ شجاعتش، او توانست سخنرانی کند و جالب اینکه وقتی تضاد را پذیرفت، لرزش صدایش به سرعت محو شد.</div>
+                            <div class="case-item"><strong>۵. پارادوکس والدگری:</strong> مادری که از خستگیِ نوزادش به ستوه آمده بود و حس می‌کرد مادر بدی است. او با درک برهم‌نهیِ «عشقِ بی‌پایان» و «خستگیِ طاقت‌فرسا»، از تله گناه رها شد. این پذیرش باعث شد خشمش به جای انفجار، به یک موج عاطفی گذرا تبدیل شود که دیگر هویت او را تعریف نمی‌کرد.</div>
+                            <div class="case-item"><strong>۶. تعادل اخلاقی:</strong> فردی که از آزارگرش متنفر بود اما می‌خواست فردی «بخشنده» باشد. او آموخت که می‌تواند همزمان «خشمگین» و «بخشنده» باشد. نگه داشتن این دو در برهم‌نهی باعث شد او بدون سرکوب خشم، به یک بخششِ اصیل و واقعی دست یابد که از عمقِ پذیرشِ پارادوکس برخاسته بود.</div>
+                            <div class="case-item"><strong>۷. هویت «بیمارِ سالم»:</strong> مراجعی با بیماری مزمن که هویتش با «بیمار بودن» گره خورده بود. او یاد گرفت خود را در برهم‌نهیِ «بیماری جسمی» و «سلامتِ بنیادی روح» ببیند. این تغییر نگرش باعث شد او دیگر بر اساس محدودیت‌های بیماری‌اش تصمیم نگیرد و سطح انرژی فیزیکی‌اش بهبود یافت.</div>
                         </div>
-                        <div class="grid gap-6 lang-en">
-                             <div class="case-item"><strong>1. Grief & Joy:</strong> A father learned to hold mourning and gratitude simultaneously, releasing neurological tension and returning to the flow of life.</div>
-                             <!-- ... -->
+                        <div class="grid gap-6 lang-en text-justify">
+                            <div class="case-item"><strong>1. Grief and Joy:</strong> A mother who had lost her child felt guilty whenever she smiled. By using superposition, she learned she could be both "deeply bereaved" and "deeply grateful" for life simultaneously. This acceptance released her nervous tension, allowing life to flow alongside her grief.</div>
+                            <div class="case-item"><strong>2. Dual Identity:</strong> A surgeon who secretly wanted to be a musician felt it lowered his status. By embracing the superposition of his "Logical Self" and "Artistic Self," he utilized both capacities. This integration made him a more creative surgeon and a disciplined musician, curing his burnout.</div>
+                            <div class="case-item"><strong>3. Decision Stasis:</strong> A client paralyzed between two opposite life paths. By visualizing living in both outcomes simultaneously in therapy, they reached "peace with both probabilities" instead of a frantic choice, ultimately deciding with a calm, coherent mind.</div>
+                            <div class="case-item"><strong>4. The Brave Coward:</strong> Someone terrified of public speaking who always tried to "kill" the fear. They learned fear and courage exist in superposition. By accepting their shaky voice as part of their courageous field, they spoke successfully, and the tremors faded once resistance ceased.</div>
+                            <div class="case-item"><strong>5. Parenting Paradox:</strong> A mother who hated her exhaustion felt like a "bad parent." By realizing she could "love her child" and "hate the fatigue" in superposition, she escaped the guilt trap, allowing her anger to become a transient wave rather than a defining label.</div>
+                            <div class="case-item"><strong>6. Moral Balance:</strong> A person who hated their abuser but wanted to be "forgiving." They learned they could be both "angry" and "merciful." Holding these in superposition led to authentic forgiveness arising from accepting the paradox, without suppressing the raw emotion.</div>
+                            <div class="case-item"><strong>7. Healing Identity:</strong> A patient with a chronic illness who labeled themselves as "sick." They learned to see themselves in the superposition of "physical illness" and "fundamental soul-health," which accelerated their physiological recovery by reducing cellular stress.</div>
+                        </div>
+                        <div class="grid gap-6 lang-tr hidden text-justify">
+                            <div class="case-item"><strong>1. Yas ve Neşe:</strong> Evladını kaybeden baba, her gülümsediğinde suçluluk hissediyordu. Süperpozisyon ilkesini kullanarak, aynı anda hem "derin bir yasta" hem de "hayata minnettar" olabileceğini kabul edince sinirsel donması çözüldü.</div>
+                            <div class="case-item"><strong>2. Kariyer İkiliği:</strong> Cerrah ve sanatçı kimliklerini birleştiren danışan, birini seçme zorunluluğundan kurtularak her iki yeteneğini de projelerinde kullandı ve mesleki tükenmişliği sona erdi.</div>
+                            <div class="case-item"><strong>3. Karar Durgunluğu:</strong> İki seçenek arasında felç olan kişi, her iki durumu da süperpozisyonda yaşayarak "doğru" kararı bulma stresini eritti ve sonunda iç huzuruyla seçimini yaptı.</div>
+                            <div class="case-item"><strong>4. Cesur Korkak:</strong> Korkuyu öldürmek yerine onu cesaret alanının bir parçası olarak kucaklayan hatip, direnmeyi bıraktığı an sesindeki titreme kendiliğinden kesildi.</div>
+                            <div class="case-item"><strong>5. Ebeveynlik Paradoksu:</strong> Sevgi ve bitkinliği süperpozisyonda kabul eden anne, suçluluk yükünden kurtularak öfkesini geçici bir dalga olarak görmeyi öğrendi.</div>
+                            <div class="case-item"><strong>6. Ahlaki Denge:</strong> İstismarcısına karşı hem adalet hem merhamet duygularını bir arada tutan danışan, duygularını bastırmadan gerçek affetmenin huzuruna ulaştı.</div>
+                            <div class="case-item"><strong>7. Hasta-Sağlam Kimliği:</strong> Kronik hastalığı olan kişi, kendini "fiziksel hastalık" ve "temel ruh sağlığı" süperpozisyonunda görünce iyileşme süreci biyolojik olarak hızlandı.</div>
                         </div>
                     </div>
                 </div>
@@ -356,30 +393,56 @@
                 
                 <div class="space-y-10">
                     <div class="block-theory">
-                        <h4 class="text-indigo-400 font-bold mb-4 text-2xl ltr">Summary: The Non-Local Heart</h4>
-                        <div class="lang-fa hidden rtl text-justify text-right">«درهم‌تنیدگی کوانتومی» پدیده‌ای است که در آن مجموعه‌ای از ذرات به شکلی با هم تعامل می‌کنند که وضعیتِ هر یک را نمی‌توان مستقل از دیگران توصیف کرد؛ تغییری در یکی، فوراً بر دیگری اثر می‌گذارد، حتی در فواصل نجومی. در روانشناسی، این به معنای «غیرمحلی بودنِ آگاهی» است؛ ما از طریق میدانی مشترک به اطرافیان، اجداد و حتی درمانگر خود متصلیم، جایی که اطلاعات عاطفی و ارتعاشاتِ روانی سریع‌تر از کلمات و فراتر از مرزهای مکان و زمان جابجا می‌شوند.</div>
-                        <div class="lang-en text-justify">Quantum Entanglement occurs when particles interact such that the state of each cannot be described independently. In psychology, this means consciousness is non-local and interconnected.</div>
+                        <h4 class="text-indigo-400 font-bold mb-4 text-2xl ltr">Summary / خلاصه نظریه / Özet</h4>
+                        <p class="lang-fa hidden rtl text-justify text-right">«درهم‌تنیدگی کوانتومی» پدیده‌ای است که در آن مجموعه‌ای از ذرات چنان به هم مرتبط می‌شوند که وضعیتِ هر یک را نمی‌توان مستقل از دیگران توصیف کرد؛ تغییری در یکی، فوراً بر دیگری اثر می‌گذارد، حتی در فواصل نجومی. در روانشناسی، این به معنای «غیرمحلی بودنِ آگاهی» است؛ ما از طریق میدانی مشترک به اطرافیان، اجداد و حتی درمانگر خود متصلیم و اطلاعات عاطفی فراتر از زمان و مکان جابجا می‌شوند.</p>
+                        <p class="lang-en text-justify">Quantum Entanglement is a phenomenon where particles become so connected that the state of one instantly influences the other, regardless of distance. In psychology, this implies that human consciousness is non-local; we are invisibly linked to loved ones, ancestors, and therapists through a shared field where emotional information travels faster than light and across boundaries.</p>
+                        <p class="lang-tr hidden text-justify">Kuantum Dolanıklığı, bir grup parçacığın durumunun diğerlerinden bağımsız olarak tanımlanamayacak şekilde bağlanmasıdır. Birindeki değişim, mesafe ne olursa olsun anında diğerini etkiler. Psikolojide bu, bilincin yerel olmadığını; sevdiklerimize, atalarımıza ve terapistlerimize duygusal bilgilerin ışıktan hızlı seyahat ettiği ortak bir alan üzerinden bağlı olduğumuzu gösterir.</p>
                     </div>
 
                     <div class="block-life">
-                        <h4 class="text-amber-400 font-bold mb-4 text-2xl ltr">Therapeutic Deep-Dive: The Tuning Fork Resonance</h4>
+                        <h4 class="text-amber-400 font-bold mb-4 text-2xl ltr">Therapeutic Deep-Dive / کاربرد در درمان / Klinik Uygulama</h4>
                         <div class="lang-fa hidden rtl text-justify text-right space-y-6">
-                            <p>ما از استعاره **«رزونانس دیاپازون»** برای توضیح قدرت میدان درمانی استفاده می‌کنیم. در اتاق درمان، سیستم عصبی درمانگر و میدانِ مراجع در هم تنیده می‌شوند. اگر درمانگر بتواند یک «حالت کوانتومی منسجم» (ارتعاشی از آرامش عمیق و حضور) را در خود تثبیت کند، این حالت از طریق درهم‌تنیدگی، فرکانسِ آشوبناکِ مراجع را به سمت پایداری می‌کشد. شفا صرفاً در کلمات نیست؛ بلکه «انتقال کوانتومیِ» انسجام از یک سیستم به سیستم دیگر است. درمانگر به عنوان یک نوسان‌سازِ مرجع عمل می‌کند که به تنظیم مجددِ میدانِ آشفته مراجع کمک می‌کند، بدون اینکه حتی نیازی به تحلیل‌های کلامی طولانی باشد.</p>
-                            <p>با استعاره **«شبکه نامرئیِ نَسَب»**، ما به تروماهای موروثی و خانوادگی می‌پردازیم. درهم‌تنیدگی نشان می‌دهد که تروماهای اجدادی می‌توانند در میدانِ نوادگان فعال بمانند زیرا آن‌ها بخشی از یک سیستم واحد هستند. ما به مراجعان می‌آموزیم که با حل یک تضاد در آگاهیِ فعلی خود، در حال ارسالِ غیرمحلیِ یک سیگنال شفابخش به کل زنجیره خانوادگی هستند. وقتی شما فرکانس خود را تغییر می‌دهید، هر کسی که با شما در هم تنیده است - حتی اگر هزاران مایل دورتر یا در نسل‌های دیگر باشد - طبق قانون فیزیک، باید به این تغییر پاسخ دهد. این تمرکز بر انسجامِ فردی، کل سیستم را به سمت تعادل پیش می‌برد.</p>
+                            <p>ما از استعاره **«رزونانس دیاپازون»** برای توضیح قدرت میدان درمانی استفاده می‌کنیم. در اتاق درمان، سیستم عصبی درمانگر و میدانِ مراجع در هم تنیده می‌شوند. اگر درمانگر بتواند یک «حالت کوانتومی منسجم» (ارتعاشی از آرامش عمیق) را حفظ کند، این حالت به صورت غیرمحلی فرکانسِ آشوبناک مراجع را به سمت پایداری می‌کشد. شفا صرفاً در کلمات نیست؛ بلکه «انتقال کوانتومیِ» انسجام از یک سیستم به سیستم دیگر است که اغلب در سکوت رخ می‌دهد.</p>
+                            <p>با استعاره **«شبکه نامرئیِ نَسَب»**، به تروماهای موروثی می‌پردازیم. درهم‌تنیدگی نشان می‌دهد که تروماهای اجدادی می‌توانند در میدانِ نوادگان فعال بمانند. ما به مراجعان می‌آموزیم که با حل یک تضاد در آگاهیِ فعلی خود، در حال ارسالِ غیرمحلیِ یک سیگنال شفابخش به کل زنجیره خانوادگی هستند. وقتی فرکانس خود را تغییر می‌دهید، هر کسی که با شما در هم تنیده است باید طبق قانون فیزیک به این تغییر پاسخ دهد، که بار سنگینِ تلاش برای تغییر دیگران را برمی‌دارد.</p>
                         </div>
-                        <div class="lang-en text-justify">Healing is viewed as a shared event where the therapist uses their own coherent state to help the client's disordered field re-align through the law of entanglement.</div>
+                        <div class="lang-en text-justify space-y-6">
+                            <p>Using the **Tuning Fork Resonance** metaphor, we explain the therapeutic field's power. If the therapist maintains a "Coherent Quantum State"—a vibration of deep peace—this state non-locally pulls the client's chaotic frequency toward stability. Breakthroughs often happen in silence because healing is the "Quantum Transfer" of coherence from one nervous system to another, re-tuning disordered fields through resonance.</p>
+                            <p>The **Invisible Web of Lineage** addresses systemic trauma. Entanglement suggests ancestral trauma remains active in a descendant's field. By resolving internal conflict now, clients non-locally "send" a healing signal back through the lineage. This shifts focus to individual coherence; when your frequency shifts, everyone entangled with you responds to that shift, effectively healing the entire family system across time and space.</p>
+                        </div>
+                        <div class="lang-tr hidden text-justify space-y-6">
+                            <p>**Diapozon Rezonansı** metaforuyla terapötik alanın gücünü açıklarız. Terapist "Uyumlu Kuantum Durumu"nu (derin bir huzur titreşimi) koruyabilirse, bu durum dolanıklık yoluyla danışanın kaotik frekansını istikrara çeker. Şifa sadece kelimelerle ilgili değildir; uyumun bir sistemden diğerine "Kuantum Transferi"dir. Terapist, dolanıklık yasasıyla danışanın alanını yeniden düzenleyen usta bir osilatör gibi davranır.</p>
+                            <p>**Soyun Görünmez Ağı** metaforuyla sistemik travmaları ele alırız. Atasal bir travma, torunun alanında aktif kalabilir. Danışanlara, mevcut bilinçleri içindeki bir çatışmayı çözerek, dolanıklık yoluyla tüm aile zincirine "şifa sinyali" gönderdiklerini öğretiriz. Siz frekansınızı değiştirdiğinizde, sizinle dolanık olan herkes -binlerce mil ötede olsalar bile- fiziksel yasa gereği bu değişime yanıt vermek zorundadır.</p>
+                        </div>
                     </div>
 
                     <div class="block-cases">
-                        <h4 class="text-emerald-400 font-bold mb-6 text-2xl ltr">7 Extensive Case Studies</h4>
+                        <h4 class="text-emerald-400 font-bold mb-6 text-2xl ltr">7 Extensive Case Studies / مثال‌های موردی / Vaka Analizleri</h4>
                         <div class="grid gap-6 lang-fa hidden rtl text-right">
-                            <div class="case-item"><strong>۱. شفای مادر و فرزند از راه دور:</strong> مادری که در ایران بود و فرزندی در خارج از کشور داشت که دچار حملات پانیک می‌شد. با کار بر روی ریشه‌های اضطرابِ جدایی در مادر و رسیدن او به آرامش عمیق، حملات پانیک فرزند به طرز عجیبی متوقف شد، بدون اینکه او از جلسات درمان مادرش مطلع باشد. این یک درهم‌تنیدگی غیرمحلیِ خالص بود.</div>
-                            <div class="case-item"><strong>۲. رزونانس بدنی درمانگر:</strong> درمانگری که در سکوتِ سنگینِ مراجع، ناگهان احساس درد شدیدی در قفسه سینه کرد. او با بیان این حس فیزیکی، گرهِ یک ترومای پنهان (ایست قلبی پدر مراجع) را باز کرد. بدن درمانگر اینجا به عنوان یک آنتن کوانتومی در میدان درهم‌تنیده عمل کرد و اطلاعاتِ منجمد شده را دریافت کرد.</div>
-                            <div class="case-item"><strong>۳. میدان گروهی و انسجام جمعی:</strong> در یک جلسه گروهی، زمانی که یکی از اعضا با گریه‌ای عمیق به رهایی رسید، تمام اعضای دیگر گروه (حتی کسانی که با او مشکل داشتند) همزمان حس سبکی و تغییر فرکانس کردند. کل میدانِ گروه در آن لحظه به یک جهش کوانتومی دست یافت، گویی همه به یک منبع واحد متصل بودند.</div>
-                            <div class="case-item"><strong>۴. آینه‌گری زناشویی بدون کلام:</strong> زنی که مدام سعی در تغییر شوهر شکاکش داشت. وقتی او تمرکز را از شوهر برداشت و روی «امنیت درونی» خودش کار کرد، میدان درهم‌تنیده زوج تغییر کرد و شوهر بدون هیچ تذکری، رفتارهای شکاکانه را کنار گذاشت. تغییر در فرکانسِ یک جزء، کل سیستمِ زوجی را بازتنظیم کرد.</div>
-                            <div class="case-item"><strong>۵. مدیریت میدان در محیط کار:</strong> مدیری که با اضطراب زیاد بازدهی تیمش را پایین آورده بود. او آموخت که با سکوت و مدیتیشن در دفترش، میدان کوانتومی محیط کار را منسجم کند. نتیجه، افزایش ناگهانی خلاقیت و آرامش در کل تیم در عرض یک هفته بود؛ بدون اینکه او حتی یک جلسه مدیریتی یا تنبیهی برگزار کند.</div>
-                            <div class="case-item"><strong>۶. زنجیره تروما و شفای اجدادی:</strong> فردی که با بخشش عمیق والدینِ فوت شده‌اش در ذهن خود، باعث تغییر رفتاری ناگهانی در فرزندان نوجوانش شد. تروماهای موروثی از طریق درهم‌تنیدگی نسل‌ها جاری بودند و با قطعِ فرکانسِ درد در یک نقطه توسط مراجع، کل زنجیره به سمتِ شفا حرکت کرد.</div>
-                            <div class="case-item"><strong>۷. همزمانی و تماس حیاتی:</strong> مراجعی که در جلسه درمان موفق به رها کردنِ یک کینه قدیمی شد، دقیقاً در لحظه پایان جلسه، تماسی از طرف همان فرد دریافت کرد که بعد از سال‌ها بی‌خبری، برای عذرخواهی تماس گرفته بود؛ یک همزمانیِ معنادار در میدان درهم‌تنیده احتمالات.</div>
+                            <div class="case-item"><strong>۱. شفای راه دور:</strong> مادری در ایران و فرزندی در سوئد که دچار حملات پانیک می‌شد. با رسیدنِ مادر به آرامش عمیق کوانتومی در جلسات، حملات فرزند بدون اطلاع او به طرز عجیبی متوقف شد؛ یک درهم‌تنیدگی غیرمحلی خالص.</div>
+                            <div class="case-item"><strong>۲. رزونانس بدنی:</strong> درمانگری که در سکوتِ سنگینِ مراجع، ناگهان احساس درد شدیدی در قفسه سینه کرد. او با بیان این حس، گرهِ یک ترومای پنهان (ایست قلبی پدر مراجع) را باز کرد. بدن درمانگر اینجا مانند یک آنتن کوانتومی عمل کرد.</div>
+                            <div class="case-item"><strong>۳. انسجام جمعی:</strong> در یک جلسه گروهی، زمانی که یکی از اعضا به رهایی رسید، تمام اعضای دیگر گروه همزمان حس سبکی و تغییر فرکانس کردند. کل میدانِ گروه در آن لحظه به یک جهش کوانتومی دست یافت، گویی همه یک سیستم واحد بودند.</div>
+                            <div class="case-item"><strong>۴. آینه‌گری زناشویی:</strong> زنی که روی «امنیت درونی» خودش کار کرد و میدان درهم‌تنیده زوج تغییر کرد. شوهر بدون هیچ تذکری، رفتارهای تهاجمی‌اش را کنار گذاشت؛ تغییر در یک جزء، کل سیستم را بازتنظیم کرد.</div>
+                            <div class="case-item"><strong>۵. مدیریت میدان شرکت:</strong> مدیری که با سکوت و مدیتیشن در دفترش، میدان کوانتومی محیط کار را منسجم کرد. نتیجه، افزایش ناگهانی خلاقیت و آرامش در کل تیم بود؛ بدون اینکه او حتی یک جلسه مدیریتی یا تنبیهی برگزار کند.</div>
+                            <div class="case-item"><strong>۶. زنجیره تروما:</strong> فردی با بخشش عمیق والدینِ فوت شده‌اش در ذهن، باعث تغییر رفتاری ناگهانی در فرزندان نوجوانش شد. تروماهای موروثی از طریق درهم‌تنیدگی نسل‌ها جاری بودند و با قطعِ فرکانسِ درد در یک نقطه، کل زنجیره شفا یافت.</div>
+                            <div class="case-item"><strong>۷. همزمانی کوانتومی:</strong> مراجعی که در پایان جلسه موفق به رها کردنِ یک کینه قدیمی شد، دقیقاً در لحظه خروج از ساختمان، تماسی از طرف همان فرد دریافت کرد که برای آشتی تماس گرفته بود؛ یک همزمانی در میدان درهم‌تنیده.</div>
+                        </div>
+                        <div class="grid gap-6 lang-en text-justify">
+                            <div class="case-item"><strong>1. Remote Healing:</strong> A mother in Iran and child in Sweden experiencing panic attacks. As the mother achieved deep quantum peace in therapy, the child's attacks stopped mysteriously without any direct intervention—a pure non-local entanglement effect.</div>
+                            <div class="case-item"><strong>2. Somatic Resonance:</strong> A therapist who suddenly felt severe chest pain during a client's silence. By sharing this, they unlocked a hidden trauma (the heart attack of the client's father). The therapist's body acted as a quantum antenna in the field.</div>
+                            <div class="case-item"><strong>3. Group Field:</strong> In a group session, when one member reached a profound "Aha!" moment, all others simultaneously felt a sense of lightness and shift, as if the entire group field had achieved a quantum leap as a single system.</div>
+                            <div class="case-item"><strong>4. Marital Mirroring:</strong> A wife shifted focus from changing her husband to her own "internal security." The entangled field changed, and the husband dropped his suspicious behaviors within a month without any verbal prompts from her.</div>
+                            <div class="case-item"><strong>5. Office Coherence:</strong> A manager stabilized the quantum field of the office through individual silence and meditation. The result was a sudden increase in the team's creativity and calm, without any organizational changes.</div>
+                            <div class="case-item"><strong>6. Ancestral Chain:</strong> A person's deep internal forgiveness of deceased parents triggered a behavioral shift in their teenage children. Inherited traumas flow through entanglement, and clearing it at one point heals the entire lineage chain.</div>
+                            <div class="case-item"><strong>7. Synchronicity:</strong> A client who successfully let go of a grudge during a session received a call from that exact person requesting reconciliation five minutes after the session ended—a quantum synchronicity in the probability field.</div>
+                        </div>
+                        <div class="grid gap-6 lang-tr hidden text-justify">
+                            <div class="case-item"><strong>1. Uzaktan Şifa:</strong> Türkiye'deki bir anne huzura kavuşunca, İsveç'teki çocuğunun panik atakları gizemli bir şekilde durdu; iki kalp arasındaki saf bir dolanıklık örneği.</div>
+                            <div class="case-item"><strong>2. Somatik Rezonans:</strong> Terapistin kendi göğsündeki ağrıyı dile getirmesi, danışanın babasıyla ilgili gömülü bir travmayı açığa çıkardı. Terapist alanı okuyan bir anten gibi işledi.</div>
+                            <div class="case-item"><strong>3. Grup Uyumu:</strong> Bir üyenin içgörüsü, tüm grubun aynı anda frekans değiştirmesini sağlayarak kolektif bir sıçrama yarattı; sanki hepsi tek bir kuantum sistemiymiş gibi.</div>
+                            <div class="case-item"><strong>4. Eş Aynalaması:</strong> Kendi iç güvenliğine odaklanan kadın, herhangi bir söz söylemeden kocasının tinsel şüpheciliğini değiştirdi. Alandaki değişim davranışı yeniden yapılandırdı.</div>
+                            <div class="case-item"><strong>5. İş Yeri Alanı:</strong> Yöneticinin içsel sükuneti, ofisin kuantum alanını düzenleyerek ekibin yaratıcılığını aniden artırdı; herhangi bir disiplin toplantısı gerekmeden.</div>
+                            <div class="case-item"><strong>6. Soy Zinciri:</strong> Vefat etmiş ebeveynlerini affeden kişi, dolanıklık yoluyla kendi çocuklarının davranışlarındaki düğümleri de çözerek aile zincirini iyileştirdi.</div>
+                            <div class="case-item"><strong>7. Eşzamanlılık:</strong> Kinini bırakan danışanın, seans biter bitmez o kişiden özür telefonu alması; dolanık olasılıklar alanında klasik bir eşzamanlılıktı.</div>
                         </div>
                     </div>
                 </div>
@@ -389,37 +452,63 @@
             <section id="ch4" class="content-section space-y-12">
                 <header class="border-b border-indigo-500/30 pb-8 text-right md:text-left">
                     <h2 class="text-4xl md:text-6xl font-black text-white lang-en uppercase">Tunneling</h2>
-                    <h2 class="text-3xl md:text-5xl font-bold text-white lang-fa hidden rtl text-right">۴. تونل‌زنی ذهنی</h2>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white lang-fa hidden rtl text-right text-right">۴. تونل‌زنی ذهنی</h2>
                     <h2 class="text-4xl md:text-6xl font-black text-white lang-tr hidden uppercase">Tünelleme</h2>
                 </header>
                 <img src="./images/img04.png" class="w-full h-80 object-cover rounded-[2.5rem] shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=1200'">
                 
                 <div class="space-y-10">
                     <div class="block-theory">
-                        <h4 class="text-indigo-400 font-bold mb-4 text-2xl ltr">Summary: Passing the Impossible</h4>
-                        <div class="lang-fa hidden rtl text-justify text-right">«تونل‌زنی کوانتومی» پدیده‌ای است که در آن یک ذره از میان یک سد پتانسیل صلب عبور می‌کند که طبق فیزیک کلاسیک نباید قادر به عبور از آن باشد. در بافت روانشناسی، این نشان‌دهنده «جهش ناگهانی» آگاهی یا همان لحظاتِ بینشِ انفجاری است. این نظریه بیان می‌کند که بهبودی و حل تروما همیشه نباید یک صعودِ کند و خطی از کوه‌های رنج باشد؛ بلکه با تغییر فرکانس ذهن، فرد می‌تواند از میان مانع «تونل» زده و فوراً در آن سوی بحران ظاهر شود، گویی دیوارِ گذشته هرگز وجود نداشته است.</div>
-                        <div class="lang-en text-justify">Quantum Tunneling represents the phenomenon of passing through a solid potential barrier. In psychology, it signifies sudden insights and rapid transformation.</div>
+                        <h4 class="text-indigo-400 font-bold mb-4 text-2xl ltr">Summary / خلاصه نظریه / Özet</h4>
+                        <p class="lang-fa hidden rtl text-justify text-right">«تونل‌زنی کوانتومی» عبور ذره از سدی صلب است که طبق فیزیک کلاسیک نباید قادر به عبور از آن باشد. در روانشناسی، این نشان‌دهنده «جهش ناگهانی» آگاهی یا همان لحظاتِ بینشِ انفجاری است. این نظریه بیان می‌کند که بهبودی و حل تروما همیشه نباید یک صعودِ کند و خطی باشد؛ بلکه با تغییر فرکانس ذهن، فرد می‌تواند از میان مانع «تونل» زده و فوراً در آن سوی بحران ظاهر شود، گویی دیوارِ گذشته هرگز وجود نداشته است.</p>
+                        <p class="lang-en text-justify">Quantum Tunneling is the phenomenon where a particle passes through a solid barrier that it shouldn't classically be able to cross. In psychology, this represents the "Sudden Insight" or "Quantum Leap." It suggests that recovery doesn't have to be a slow climb over mountains of trauma; instead, by shifting the mind's frequency, one can "tunnel" through obstacles and appear on the other side of crisis instantly, bypassing linear time.</p>
+                        <p class="lang-tr hidden text-justify">Kuantum Tünelleme, bir parçacığın klasik olarak aşamaması gereken katı bir bariyerden geçmesi fenomenidir. Psikolojik terimlerle bu, "Ani İçgörü" veya "Kuantum Sıçraması"dır. İyileşmenin her zaman travma dağları üzerinden yavaş bir tırmanış olması gerekmediğini; zihnin frekansını değiştirerek kişinin engelin içinden "tünel açabileceğini" ve krizin diğer tarafında anında görünebileceğini öne sürer.</p>
                     </div>
 
                     <div class="block-life">
-                        <h4 class="text-amber-400 font-bold mb-4 text-2xl ltr">Therapeutic Deep-Dive: The Crystalline Passage</h4>
+                        <h4 class="text-amber-400 font-bold mb-4 text-2xl ltr">Therapeutic Deep-Dive / کاربرد در درمان / Klinik Uygulama</h4>
                         <div class="lang-fa hidden rtl text-justify text-right space-y-6">
-                            <p>ما از استعاره **«گذرگاه بلورین»** برای توضیح تحول سریع استفاده می‌کنیم. درمان‌های کلاسیک اغلب به مراجع القا می‌کنند که «دیوار تروما» صلح و ضخیم است و عبور از آن سال‌ها طول می‌کشد. اما درمان کوانتومی پیشنهاد می‌دهد که دیوار تنها به دلیل چگالیِ فعلیِ فکر مراجع صلب است. ما مراجعان را به حالتی از «آگاهی موج‌گونه» هدایت می‌کنیم که در آن دیوار صلب گذشته به نوری نفوذپذیر تبدیل می‌شود. این منجر به لحظات بینش ناگهانی (Aha! moments) می‌شود که سال‌ها کارِ شناختی را دور می‌زند و فرد را مستقیماً به نسخه موازی زندگی‌اش پرتاب می‌کند که در آن رنج دیگر قدرتی ندارد.</p>
-                            <p>استعاره **«جهش کوانتومی»** عبور از «تله فرآیند» را توصیف می‌کند. بسیاری از مراجعان باور دارند «آماده» شفا نیستند چون به اندازه کافی رنج نکشیده‌اند یا زمان کافی صرف نکرده‌اند. تونل‌زنی این باور را با نشان دادن اینکه بینش «زمان‌پذیر» نیست، می‌شکند. ما از تکنیک‌هایی مانند هیپنوتیزم بالینی یا تجسم استعاره‌ای عمیق استفاده می‌کنیم تا فرکانس ارتعاشی هویت مراجع را تغییر دهیم. وقتی هویت از «من قربانی هستم» به «من موجی از پتانسیل هستم» تغییر می‌کند، سدِ عادت‌های ده ساله به سادگی ذوب می‌شود. این روش برای اعتیادهای ریشه‌دار بسیار مؤثر است، جایی که مراجع در یک لحظه از سدِ نیازِ جسمانی عبور کرده و به آزادی می‌رسد.</p>
+                            <p>ما از استعاره **«گذرگاه بلورین»** برای توضیح تحول سریع استفاده می‌کنیم. درمان‌های کلاسیک دیوار تروما را ضخیم می‌بینند، اما درمان کوانتومی معتقد است دیوار تنها به دلیل چگالیِ فعلیِ فکر مراجع صلب است. با هدایت به حالتی از «آگاهی موج‌گونه»، دیوارِ گذشته نفوذپذیر می‌شود. این منجر به لحظات بینش ناگهانی (Aha! moments) می‌شود که سال‌ها کارِ شناختی را دور می‌زند و فرد را مستقیماً به نسخه‌ای از زندگی پرتاب می‌کند که تروما در آن قدرتی ندارد.</p>
+                            <p>استعاره **«جهش کوانتومی»** عبور از «تله فرآیند» را توصیف می‌کند. بسیاری از مراجعان باور دارند «آماده» شفا نیستند چون زمان کافی صرف نکرده‌اند. تونل‌زنی این باور را می‌شکند. با «بازتنظیم فرکانسِ» تصویرِ خود، مراجع از سدِ عادت‌های ده ساله ذوب می‌شود. این روش برای اعتیادهای ریشه‌دار بسیار مؤثر است، جایی که مراجع در یک جلسه فشرده از سدِ نیاز جسمانی عبور کرده و مستقیماً به آزادی می‌رسد، بدون طی کردنِ پله‌پله‌ی مراحل سنتی.</p>
                         </div>
-                        <div class="lang-en text-justify">Tunneling shatters the belief that recovery must be slow. By shifting identity frequency, clients can bypass the "Process Trap" and reach a state of freedom instantly.</div>
+                        <div class="lang-en text-justify space-y-6">
+                            <p>The **Crystalline Passage** metaphor explains rapid transformation. Classical therapy views the "Wall of Trauma" as thick stone, but Quantum therapy suggests it is only solid due to current thought density. By entering "Wave-like Consciousness," the past becomes permeable. This leads to breakthroughs that skip years of work, tunneling the client into a parallel life version where the old story no longer governs their present actions.</p>
+                            <p>The **Quantum Leap** avoids the "Process Trap." Many believe they aren't "ready" to heal because they haven't worked long enough. Tunneling proves insight is non-temporal. Through frequency re-alignment, we bypass the logical mind's delay. This is revolutionary for deep addictions and phobias, where a single session can dissolve a decade-old wall of habit that classical methods failed to even scratch, allowing a jump directly to freedom.</p>
+                        </div>
+                        <div class="lang-tr hidden text-justify space-y-6">
+                            <p>**Kristal Geçit** metaforuyla travma duvarının sadece düşünce yoğunluğuyla katılaştığını gösteririz. Dalga benzeri bir bilinç durumuna girildiğinde geçmiş ışığa dönüşür. Bu, yılların bilişsel çalışmasını atlayarak kişiyi travmanın artık güç sahibi olmadığı bir hayata fırlatır. "Aha!" anları, klasik terapi süreçlerinin yavaşlığını kuantum hızıyla baypas eder.</p>
+                            <p>**Kuantum Sıçraması** "Süreç Tuzağı"nı aşmaktır. Birçok danışan yeterince çalışmadıkları için iyileşmeye "hazır" olmadıklarına inanır. Tünelleme, içgörünün zamana tabi olmadığını kanıtlar. Frekans düzenleme ile danışanlar on yıllık alışkanlık duvarlarını tek bir yoğun seansta eritirler; mantıksal zihnin "henüz erken" diyen bariyerini anında geçerler.</p>
+                        </div>
                     </div>
 
                     <div class="block-cases">
-                        <h4 class="text-emerald-400 font-bold mb-6 text-2xl ltr">7 Extensive Case Studies</h4>
+                        <h4 class="text-emerald-400 font-bold mb-6 text-2xl ltr">7 Extensive Case Studies / مثال‌های موردی / Vaka Analizleri</h4>
                         <div class="grid gap-6 lang-fa hidden rtl text-right">
-                            <div class="case-item"><strong>۱. ناپدید شدن فوبیای ۲۰ ساله:</strong> زنی که به دلیل فوبیای گربه حتی نمی‌توانست به پارک برود. در یک جلسه با تغییر فرکانسِ تصویر ذهنی «گربه» از یک ذره خطرناک به یک نوسان نوری، او از میان دیوارِ ترس خود تونل زد و برای همیشه رها شد. او هفته بعد بدون لرزش با گربه‌ها روبرو شد.</div>
-                            <div class="case-item"><strong>۲. جهش از هویت اعتیاد:</strong> مراجعی که ۱۰ سال سیگار می‌کشید و با روش‌های تدریجی شکست خورده بود. او با یک جهش در هویت و حس کردنِ خود به عنوان یک «غیرسیگاری بنیادی»، سدِ نیکوتین را در سطح سلولی پشت سر گذاشت و بدون علائم ترک، سیگار را کنار گذاشت، گویی هرگز سیگاری نبوده است.</div>
-                            <div class="case-item"><strong>۳. بخشش ناگهانی در تروما:</strong> فردی که از آزارگرش کینه عمیق داشت. او با دیدن آزارگر به عنوان بخشی از یک زنجیره اطلاعاتیِ معیوب و تغییر فرکانسِ آگاهی‌اش، در یک لحظه از سد کینه عبور کرد و به صلح رسید؛ تحولی که سال‌ها تحلیل‌های خطی به آن نرسیده بود.</div>
-                            <div class="case-item"><strong>۴. انفجار خلاقیت پس از قفل ۵ ساله:</strong> هنرمندی که ۵ سال دچار «قفل نویسندگی» بود. با تکنیک تونل‌زنی ذهنی و گذار از سدِ «من کافی نیستم»، او در یک شب نیمی از کتابش را نوشت. او گفت حس کرده دری به دنیای موازی باز شده و کلمات بدون تلاش از آن سو جاری شده‌اند.</div>
-                            <div class="case-item"><strong>۵. جهش پارادایم مالی:</strong> فردی که در فقرِ ذهنی منجمد شده بود. او با تغییر فرکانسِ مشاهده ثروت از یک «منبع محدود» به یک «موج بی‌پایان»، سدِ باورهای محدودکننده را شکست و فرصت‌های مالی به صورت جهشی و غیرمنتظره در زندگی‌اش ظاهر شدند.</div>
-                            <div class="case-item"><strong>۶. تونل‌زنی در ترس از سخنرانی:</strong> کارمندی خجالتی که با تغییر فرکانسِ نگاه مخاطبان (از داور به منبع انرژی)، سدِ اضطراب را دور زد. او اولین سخنرانی‌اش را با چنان تسلطی انجام داد که گویی سال‌ها تجربه دارد؛ بدون طی کردن مراحل تمرین تدریجی و صعود کلاسیک.</div>
-                            <div class="case-item"><strong>۷. عبور از دیوارهای PTSD:</strong> بازمانده‌ای از زلزله که با هر لرزشی فلج می‌شد. با تکنیک تونل‌زنی و جدا کردنِ آگاهی از محرک‌های فیزیکی، او موفق شد از سدِ واکنش‌های خودکارِ مغز قدیم عبور کرده و به آرامش برسد. او اکنون لرزش‌ها را فقط به عنوان حرکت ساده ذرات می‌بیند.</div>
+                            <div class="case-item"><strong>۱. فوبیای ۲۰ ساله:</strong> زنی که با تغییر فرکانس تصویر ذهنی «گربه» از ذره به نوسان نوری، از میان دیوار ترس تونل زد و برای همیشه رها شد؛ جهشی که سال‌ها حساسیت‌زدایی تدریجی موفق به انجامش نشده بود.</div>
+                            <div class="case-item"><strong>۲. جهش از هویت اعتیاد:</strong> مراجعی با جهش در هویت به «غیرسیگاری بنیادی» در سطح سلولی، سد نیکوتین را پشت سر گذاشت و بدون علائم ترک، سیگار را کنار گذاشت، گویی هرگز سیگاری نبوده است.</div>
+                            <div class="case-item"><strong>۳. بخشش ناگهانی:</strong> فردی با کینه عمیق که با دیدن آزارگر به عنوان بخشی از یک زنجیره معیوب، در یک لحظه از سد کینه عبور کرد و به صلحی رسید که سال‌ها تحلیل خطی به آن نرسیده بود.</div>
+                            <div class="case-item"><strong>۴. انفجار خلاقیت:</strong> هنرمندی با قفل ۵ ساله که در یک شب نیمی از کتابش را نوشت. او حس کرد دری به دنیای موازی باز شده و کلمات بدون تلاش از آن سو جاری شده‌اند؛ عبوری از سد پتانسیل خلاق.</div>
+                            <div class="case-item"><strong>۵. جهش پارادایم مالی:</strong> فردی منجمد در فقر با تغییر فرکانس مشاهده ثروت به «موج بی‌پایان»، سد باورها را شکست و فرصت‌های مالی به صورت جهشی و غیرمنتظره در زندگی‌اش ظاهر شدند.</div>
+                            <div class="case-item"><strong>۶. ترس از سخنرانی:</strong> کارمندی خجالتی با تغییر فرکانس نگاه مخاطب (از داور به انرژی)، سد اضطراب را دور زد و مستقیماً به نقطه تسلطِ یک سخنران ماهر پرتاب شد؛ بدون طی کردن مراحل تمرین تدریجی.</div>
+                            <div class="case-item"><strong>۷. عبور از دیوارهای PTSD:</strong> بازمانده زلزله با تکنیک تونل‌زنی و جدا کردن آگاهی از محرک‌های فیزیکی، از سد واکنش‌های خودکار مغز خزنده عبور کرد و لرزش‌ها را فقط حرکت ذرات دید.</div>
+                        </div>
+                        <div class="grid gap-6 lang-en text-justify">
+                            <div class="case-item"><strong>1. Vanishing Phobia:</strong> A woman with a 20-year cat phobia shifted the mental image frequency from "threat" to "oscillation," tunneling through her fear wall in one session—a feat gradual methods couldn't achieve.</div>
+                            <div class="case-item"><strong>2. Addiction Snap:</strong> By leaping into an identity of a "fundamental non-smoker" at a cellular level, a 10-year addict bypassed the nicotine barrier and quit without withdrawal symptoms, effectively shifting his reality.</div>
+                            <div class="case-item"><strong>3. Instant Forgiveness:</strong> A person with a deep grudge viewed the abuser as a glitch in an information chain. Shifting frequency allowed them to tunnel through resentment into peace that years of counseling missed.</div>
+                            <div class="case-item"><strong>4. Creative Burst:</strong> After a 5-year block, an artist wrote half a book in one night. They described it as opening a door to a parallel world where words flowed without effort, tunneling through the "uncreative" state.</div>
+                            <div class="case-item"><strong>5. Wealth Shift:</strong> Someone frozen in poverty consciousness shifted their observation to wealth as an "endless wave." They broke the limiting belief barrier, and financial opportunities appeared as sudden quantum jumps.</div>
+                            <div class="case-item"><strong>6. Stage Mastery:</strong> A shy employee bypassed anxiety by viewing the audience as an energy source rather than a judge. They performed with mastery, bypassing traditional gradual practice phases entirely.</div>
+                            <div class="case-item"><strong>7. PTSD Tunnel:</strong> An earthquake survivor paralyzed by vibrations used tunneling to decouple consciousness from physical triggers, bypassing the reptilian brain's wall to reach instant calm.</div>
+                        </div>
+                        <div class="grid gap-6 lang-tr hidden text-justify">
+                            <div class="case-item"><strong>1. 20 Yıllık Fobi:</strong> Zihinsel görüntüyü "tehdit"ten "ışık salınımı"na kaydıran kadın, korku duvarını tünelledi ve kademeli yöntemlerin yapamadığını bir seansta başardı.</div>
+                            <div class="case-item"><strong>2. Bağımlılık Sıçraması:</strong> Hücresel düzeyde "içmeyen biri" kimliğine sıçrayan danışan, on yıllık alışkanlığını yoksunluk yaşamadan bir gecede bıraktı; adeta hiç içmemiş gibi.</div>
+                            <div class="case-item"><strong>3. Ani Affetme:</strong> İstismarcısını hatalı bir bilgi zinciri olarak gören kişi, kin duvarının içinden geçerek yıllarca süren danışmanlığın ötesine bir saniyede ulaştı.</div>
+                            <div class="case-item"><strong>4. Yaratıcı Patlama:</strong> 5 yıldır tıkanan sanatçı, tünelleme ile kelimelerin çabasızca aktığı paralel bir dünyaya kapı açtı ve kitabının yarısını bir gecede bitirdi.</div>
+                            <div class="case-item"><strong>5. Finansal Sıçrama:</strong> Yoksulluk bilincindeki kişi, serveti sonsuz bir dalga olarak gözlemleyince kısıtlayıcı inançları aşarak beklenmedik gelirler elde etti.</div>
+                            <div class="case-item"><strong>6. Sahne Korkusu:</strong> İzleyiciyi yargıç değil enerji kaynağı olarak gören çalışan, kademeli pratik yapmadan doğrudan usta bir hatip noktasına "fırlatıldı."</div>
+                            <div class="case-item"><strong>7. TSSB Duvarları:</strong> Bilinci fiziksel tetikleyicilerden ayıran depremzede, sürüngen beyin reaksiyonlarını baypas ederek sükunete ulaştı; titreşimleri sadece parçacık hareketi olarak gördü.</div>
                         </div>
                     </div>
                 </div>
@@ -428,20 +517,21 @@
         </div>
     </main>
 
+    <!-- Miniature Player -->
     <div class="mini-player-container">
         <div id="mini-controls" class="mini-player-controls ltr">
             <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-2">
                 <div class="flex items-center gap-2">
                     <div id="playing-indicator" class="w-1.5 h-1.5 rounded-full bg-indigo-500 hidden animate-pulse"></div>
-                    <p id="audio-title" class="text-[9px] font-bold text-white uppercase tracking-tighter">Audio</p>
+                    <p id="audio-title" class="text-[9px] font-bold text-white uppercase tracking-tighter">Audio Narrator</p>
                 </div>
-                <button onclick="togglePlayerPanel()" class="text-slate-500 hover:text-white"><i class="fas fa-times text-[10px]"></i></button>
+                <button onclick="togglePlayerPanel()" class="text-slate-500 hover:text-white"><i class="fas fa-times text-xs"></i></button>
             </div>
             <div class="space-y-4">
                 <div class="flex items-center gap-3">
                     <i class="fas fa-tachometer-alt text-[10px] text-slate-500"></i>
                     <input type="range" id="speed-slider" min="0.5" max="2" step="0.1" value="1" oninput="updateSpeed(this.value)" class="flex-grow h-1 accent-indigo-400 bg-slate-700 rounded-lg cursor-pointer">
-                    <span id="speed-indicator" class="text-[10px] font-mono text-indigo-400 w-6">1.0</span>
+                    <span id="speed-indicator" class="text-[9px] font-mono text-indigo-400 w-6">1.0</span>
                 </div>
                 <div class="flex items-center gap-3">
                     <i class="fas fa-volume-up text-[10px] text-slate-500"></i>
@@ -535,7 +625,11 @@
 
         function toggleAudio() {
             if (currentLang === 'fa') { 
-                alert("Narration is not available for Persian. / صوتی موجود نیست."); 
+                const alertBox = document.createElement('div');
+                alertBox.className = 'fixed top-10 left-1/2 -translate-x-1/2 bg-indigo-600 p-4 rounded-xl shadow-2xl z-[500] text-sm animate-bounce';
+                alertBox.innerText = 'Audio narration is not available for Persian. / صوتی موجود نیست.';
+                document.body.appendChild(alertBox);
+                setTimeout(() => alertBox.remove(), 3000);
                 return; 
             }
             if (synth.speaking && !synth.paused) { 
@@ -548,12 +642,17 @@
                 document.getElementById('play-btn').innerHTML = '<i class="fas fa-pause text-sm"></i>'; 
                 return; 
             }
+
             const activeSection = document.querySelector('.content-section.active');
-            const textToRead = activeSection.innerText; 
+            // Select all visible paragraphs and divs that are not hidden within the active section
+            const elements = activeSection.querySelectorAll(`p:not(.hidden), div.case-item:not(.hidden), h4:not(.hidden)`);
+            const textToRead = Array.from(elements).map(el => el.innerText).join('. ');
+            
             utterance = new SpeechSynthesisUtterance(textToRead);
             utterance.lang = (currentLang === 'en' ? 'en-US' : 'tr-TR');
             utterance.rate = document.getElementById('speed-slider').value;
             utterance.volume = document.getElementById('vol-slider').value;
+            
             utterance.onstart = () => { 
                 document.getElementById('play-btn').innerHTML = '<i class="fas fa-pause text-sm"></i>'; 
                 document.getElementById('playing-indicator').classList.remove('hidden'); 
@@ -570,6 +669,7 @@
             if (synth.speaking) { synth.cancel(); toggleAudio(); } 
         }
         function updateVolume(val) { if (utterance) utterance.volume = val; }
+
         window.onload = () => { setLang('en'); };
     </script>
 </body>
